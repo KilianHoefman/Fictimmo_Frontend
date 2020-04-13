@@ -7,6 +7,7 @@ import { DetailComponent } from './detail/detail.component';
 import { LocatieComponent } from './locatie/locatie.component';
 import { ImmoBureauComponent } from './immo-bureau/immo-bureau.component';
 import { KlantComponent } from './klant/klant.component';
+import { MaterialModule } from './material/material.module';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { KlantComponent } from './klant/klant.component';
     KlantComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    MaterialModule
   ],
   providers: [],
   bootstrap: [AppComponent]
