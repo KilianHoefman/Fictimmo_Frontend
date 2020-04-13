@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 
 @Component({
   selector: 'app-immo-bureau',
@@ -6,7 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./immo-bureau.component.css']
 })
 export class ImmoBureauComponent implements OnInit {
-
+  @Input() public naam : string;
   constructor() { }
 
   ngOnInit(): void {

@@ -6,6 +6,7 @@ import { HuisComponent } from './huis/huis.component';
 import { DetailComponent } from './detail/detail.component';
 import { LocatieComponent } from './locatie/locatie.component';
 import { ImmoBureauComponent } from './immo-bureau/immo-bureau.component';
+import { KlantComponent } from './klant/klant.component';
 
 @NgModule({
   declarations: [
@@ -13,7 +14,8 @@ import { ImmoBureauComponent } from './immo-bureau/immo-bureau.component';
     HuisComponent,
     DetailComponent,
     LocatieComponent,
-    ImmoBureauComponent
+    ImmoBureauComponent,
+    KlantComponent
   ],
   imports: [
     BrowserModule
