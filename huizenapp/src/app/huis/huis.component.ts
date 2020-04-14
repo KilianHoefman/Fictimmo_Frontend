@@ -6,10 +6,11 @@ import { Component, OnInit, Input } from '@angular/core';
   styleUrls: ['./huis.component.css']
 })
 export class HuisComponent implements OnInit {  
-  @Input() price : BigInteger;
-  @Input() korteBeschrijving : string;
+  @Input() price : number = 3456789;
+  @Input() korteBeschrijving : string = "Huis met 4 slaapkamers";
   @Input() type : string;
-  constructor() { }
+  @Input() soort : string = "huis";
+  constructor() {}
 
   ngOnInit(): void {
   }
