@@ -8,6 +8,7 @@ import { LocatieComponent } from './locatie/locatie.component';
 import { ImmoBureauComponent } from './immo-bureau/immo-bureau.component';
 import { KlantComponent } from './klant/klant.component';
 import { MaterialModule } from './material/material.module';
+import { UserModule } from './user/user.module';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { MaterialModule } from './material/material.module';
   ],
   imports: [
     BrowserModule,
-    MaterialModule
+    MaterialModule,
+    UserModule
   ],
   providers: [],
   bootstrap: [AppComponent]
