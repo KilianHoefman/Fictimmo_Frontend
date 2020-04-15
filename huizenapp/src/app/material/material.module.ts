@@ -6,7 +6,7 @@ import { MatFormFieldModule} from '@angular/material/form-field';
 import { MatIconModule } from '@angular/material/icon';
 import { MatCardModule } from '@angular/material/card';
 import { FlexLayoutModule } from '@angular/flex-layout';
-
+import { MatSidenavModule } from '@angular/material/sidenav';
 
 @NgModule({
   declarations: [],
@@ -17,7 +17,8 @@ import { FlexLayoutModule } from '@angular/flex-layout';
     MatListModule,
     MatCardModule,
     MatIconModule,
-    MatFormFieldModule
+    MatFormFieldModule,
+    MatSidenavModule
   ],
   exports: [
     BrowserAnimationsModule,
@@ -25,7 +26,8 @@ import { FlexLayoutModule } from '@angular/flex-layout';
     MatListModule,
     MatCardModule,
     MatIconModule,
-    MatFormFieldModule
+    MatFormFieldModule,
+    MatSidenavModule
   ]
 })
 export class MaterialModule { }
