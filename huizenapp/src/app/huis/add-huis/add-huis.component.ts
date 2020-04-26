@@ -17,6 +17,7 @@ export class AddHuisComponent implements OnInit {
   }
 
   addHuis(newhuistype: HTMLInputElement): boolean {    
+    //temporarily making a full object instead of the type which is created by the user through html
     console.log(newhuistype.value);
     const locatie = new Locatie('Merelbeke', 'Sint-elooistraat', '73', 9820);    
     const detail = new Detail('lange beschrijving', 500, 800, 230, 1200);
