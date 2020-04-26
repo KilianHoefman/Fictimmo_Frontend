@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { HUIZEN } from '../huis/mock-huis';
+import { Huis } from '../huis/huis.model';
 
 @Component({
   selector: 'app-huis-list',
@@ -13,5 +14,9 @@ export class HuisListComponent{
 
   get huizen(){
     return this._huizen;
+  }
+
+  addNewHuis(huis: Huis){
+    this._huizen.push(huis);
   }
 }

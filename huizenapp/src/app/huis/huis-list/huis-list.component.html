@@ -1,3 +1,6 @@
+<div fxLayour="column" fxLayoutGape="2%">
+<app-add-huis (newHuis)="addNewHuis($event)"></app-add-huis>
+<br>
 <div
   fxLayout="row wrap"
   fxLayout.xs="column"
@@ -10,5 +13,6 @@
     fxFlex="0 0 calc(25%-0.5%)"
     fxFlex.xs="100%">
     <app-huis [huis]="localHuis"></app-huis>
-  </div>
+  </div> 
+</div>
 </div>

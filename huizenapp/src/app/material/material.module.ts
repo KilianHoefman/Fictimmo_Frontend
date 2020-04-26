@@ -7,6 +7,8 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatCardModule } from '@angular/material/card';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { MatSidenavModule } from '@angular/material/sidenav';
+import { MatInputModule } from '@angular/material/input';
+
 
 @NgModule({
   declarations: [],
@@ -18,7 +20,8 @@ import { MatSidenavModule } from '@angular/material/sidenav';
     MatCardModule,
     MatIconModule,
     MatFormFieldModule,
-    MatSidenavModule
+    MatSidenavModule,
+    MatInputModule
   ],
   exports: [
     BrowserAnimationsModule,
@@ -27,7 +30,8 @@ import { MatSidenavModule } from '@angular/material/sidenav';
     MatCardModule,
     MatIconModule,
     MatFormFieldModule,
-    MatSidenavModule
+    MatSidenavModule,
+    MatInputModule
   ]
 })
 export class MaterialModule { }
