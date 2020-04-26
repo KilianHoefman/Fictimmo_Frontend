@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { HUIZEN } from '../huis/mock-huis';
 import { Huis } from '../huis/huis.model';
+import { HuisDataService } from '../huis/huis-data.service';
 
 @Component({
   selector: 'app-huis-list',
@@ -8,15 +9,13 @@ import { Huis } from '../huis/huis.model';
   styleUrls: ['./huis-list.component.css']
 })
 export class HuisListComponent{
-  private _huizen = HUIZEN;
+  constructor(private _huisDataService: HuisDataService) {}
 
-  constructor() { }
-
-  get huizen(){
-    return this._huizen;
+  get huizen() : Huis[] {
+    return this._huisDataService.huizen;
   }
 
-  addNewHuis(huis: Huis){
-    this._huizen.push(huis);
+  addNewHuis(huis) {
+    this._huisDataService.addNewHuis(huis);
   }
 }
