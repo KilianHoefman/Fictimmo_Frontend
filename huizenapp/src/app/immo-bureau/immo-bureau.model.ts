@@ -34,5 +34,8 @@ export class ImmoBureau{
         return this._huizen;
     }
     
+    addHuis(huis: Huis){
+        this._huizen.push(huis);
+    }
     
 }
