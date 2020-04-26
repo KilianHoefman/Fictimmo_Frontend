@@ -46,6 +46,29 @@ const JsonHuizen = [
             naam: 'Immo Nobels',
             huizen: []
         }
+    },
+    {
+        locatie: {
+            gemeente: 'Gent',
+            straatnaam: 'Overpoortstraat',
+            huisnummer: '6',
+            postcode: 9000
+        },
+        korteBeschrijving: 'Nachtclub / Café',
+        price: 1025000,
+        detail: {
+            langeBeschrijving: 'Herenhuis gelegen in hartje Gent met 4 slaapkamers en 2 badkamers, ruime leefruimte en mogelijkheid tot praktijk',
+            bewoonbareOppervlakte: 600,
+            totaleOppervlakte: 3500,
+            epcWaarde: 430,
+            kadastraalInkomen: 1700
+        },
+        type: 'koop',
+        soort: 'huis',
+        immoBureau: {
+            naam: 'Immo Nobels',
+            huizen: []
+        }
     }
 ];
 
