@@ -6,10 +6,11 @@ import { CommonModule } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
 import { HuisListComponent } from './huis-list/huis-list.component';
 import { AddHuisComponent } from './add-huis/add-huis.component';
+import { HuisFilterPipe } from './huis/huis-filter.pipe';
 
 
 @NgModule({
-  declarations: [HuisComponent, LocatieComponent, HuisListComponent, AddHuisComponent],
+  declarations: [HuisComponent, LocatieComponent, HuisListComponent, AddHuisComponent, HuisFilterPipe],
   imports: [
     CommonModule,
     HttpClientModule,

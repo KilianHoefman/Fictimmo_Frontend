@@ -1,7 +1,13 @@
 import { Component, OnInit } from '@angular/core';
-import { HUIZEN } from '../huis/mock-huis';
 import { Huis } from '../huis/huis.model';
 import { HuisDataService } from '../huis/huis-data.service';
+import { Subject } from 'rxjs';
+ import {
+   distinctUntilChanged,
+   debounceTime,
+   map,
+   filter
+ } from 'rxjs/operators';
 
 @Component({
   selector: 'app-huis-list',
@@ -9,7 +15,18 @@ import { HuisDataService } from '../huis/huis-data.service';
   styleUrls: ['./huis-list.component.css']
 })
 export class HuisListComponent{
-  constructor(private _huisDataService: HuisDataService) {}
+  public filterHuisSoort: string;
+  public filterHuis$ = new Subject<string>();
+
+  constructor(private _huisDataService: HuisDataService){
+    this.filterHuis$
+    .pipe(
+      distinctUntilChanged(),
+      debounceTime(200),
+      map(val => val.toLowerCase())
+    )
+    .subscribe(val => (this.filterHuisSoort = val));
+  }
 
   get huizen() : Huis[] {
     return this._huisDataService.huizen;
@@ -17,5 +34,9 @@ export class HuisListComponent{
 
   addNewHuis(huis) {
     this._huisDataService.addNewHuis(huis);
+  }
+
+  applyFilter(filter: string){
+    this.filterHuisSoort = filter;
   }
 }

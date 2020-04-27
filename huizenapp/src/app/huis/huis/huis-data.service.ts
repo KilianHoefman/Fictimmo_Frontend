@@ -15,6 +15,6 @@ export class HuisDataService {
   }
 
   addNewHuis(huis: Huis){
-    this._huizen.push(huis);
+    this._huizen = [...this._huizen, huis];
   }
 }

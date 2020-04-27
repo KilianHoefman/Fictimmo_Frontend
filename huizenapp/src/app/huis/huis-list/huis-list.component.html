@@ -1,5 +1,15 @@
 <div fxLayour="column" fxLayoutGape="2%">
 <app-add-huis (newHuis)="addNewHuis($event)"></app-add-huis>
+<mat-card>
+  <mat-form-field>
+    <input
+         matInput
+         (keyup)="filterHuis$.next($event.target.value)"
+         placeholder="Filter op soort"
+         type="text"
+       />
+  </mat-form-field>
+</mat-card>
 <br>
 <div
   fxLayout="row wrap"
@@ -9,7 +19,7 @@
   
 <div
     class="huis"
-    *ngFor="let localHuis of huizen"
+    *ngFor="let localHuis of (huizen | huisFilter: filterHuisSoort)"
     fxFlex="0 0 calc(25%-0.5%)"
     fxFlex.xs="100%">
     <app-huis [huis]="localHuis"></app-huis>
