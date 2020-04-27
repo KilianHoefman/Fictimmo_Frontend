@@ -1,5 +1,5 @@
 <div fxLayour="column" fxLayoutGape="2%">
-<app-add-huis (newHuis)="addNewHuis($event)"></app-add-huis>
+<!-- <app-add-huis (newHuis)="addNewHuis($event)"></app-add-huis> -->
 <mat-card>
   <mat-form-field>
     <input
@@ -19,7 +19,7 @@
   
 <div
     class="huis"
-    *ngFor="let localHuis of (huizen | huisFilter: filterHuisSoort)"
+    *ngFor="let localHuis of (huizen$ | async | huisFilter: filterHuisSoort)"
     fxFlex="0 0 calc(25%-0.5%)"
     fxFlex.xs="100%">
     <app-huis [huis]="localHuis"></app-huis>

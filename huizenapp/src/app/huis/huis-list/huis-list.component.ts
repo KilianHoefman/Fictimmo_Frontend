@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Huis } from '../huis/huis.model';
 import { HuisDataService } from '../huis/huis-data.service';
-import { Subject } from 'rxjs';
+import { Subject, Observable } from 'rxjs';
  import {
    distinctUntilChanged,
    debounceTime,
@@ -17,6 +17,7 @@ import { Subject } from 'rxjs';
 export class HuisListComponent{
   public filterHuisSoort: string;
   public filterHuis$ = new Subject<string>();
+  private _fetchHuizen$: Observable<Huis[]> = this._huisDataService.huizen$;
 
   constructor(private _huisDataService: HuisDataService){
     this.filterHuis$
@@ -28,13 +29,13 @@ export class HuisListComponent{
     .subscribe(val => (this.filterHuisSoort = val));
   }
 
-  get huizen() : Huis[] {
-    return this._huisDataService.huizen;
+  get huizen$() : Observable< Huis[] >{
+    return this._fetchHuizen$;
   }
 
-  addNewHuis(huis) {
-    this._huisDataService.addNewHuis(huis);
-  }
+  // addNewHuis(huis) {
+  //   this._huisDataService.addNewHuis(huis);
+  // }
 
   applyFilter(filter: string){
     this.filterHuisSoort = filter;
