@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { map } from 'rxjs/operators';
+import { map, tap } from 'rxjs/operators';
 import { Huis } from './huis.model';
 import { Observable, pipe } from 'rxjs';
 import { environment } from 'src/environments/environment';
@@ -14,8 +14,8 @@ export class HuisDataService {
 
   get huizen$(): Observable<Huis[]> {
     return this.http
-      .get(`${environment.apiUrl}/huizen/`)
-      .pipe(map((list: any[]): Huis[] => list.map(Huis.fromJSON)));
+      .get(`${environment.apiUrl}/huizen/`)      
+      .pipe(tap(console.log) ,map((list: any[]): Huis[] => list.map(Huis.fromJSON)));
   }
 
   addNewHuis(huis$: Huis){

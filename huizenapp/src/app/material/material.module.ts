@@ -8,6 +8,8 @@ import { MatCardModule } from '@angular/material/card';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatInputModule } from '@angular/material/input';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+
 
 
 @NgModule({
@@ -21,7 +23,8 @@ import { MatInputModule } from '@angular/material/input';
     MatIconModule,
     MatFormFieldModule,
     MatSidenavModule,
-    MatInputModule
+    MatInputModule,
+    MatProgressSpinnerModule
   ],
   exports: [
     BrowserAnimationsModule,
@@ -31,7 +34,8 @@ import { MatInputModule } from '@angular/material/input';
     MatIconModule,
     MatFormFieldModule,
     MatSidenavModule,
-    MatInputModule
+    MatInputModule,
+    MatProgressSpinnerModule
   ]
 })
 export class MaterialModule { }

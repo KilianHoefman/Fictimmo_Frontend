@@ -1,35 +1,45 @@
 export interface LocatieJson{
     gemeente: string;
-    straatnaam: string;
     huisnummer: string;
+    locatieId: number;
     postcode: number;
+    straatnaam: string;
 }
 
 export class Locatie{
     constructor(
         private _gemeente: string,
-        private _straatnaam: string,
         private _huisnummer: string,
-        private _postcode: number
+        private _locatieId: number,
+        private _postcode: number,
+        private _straatnaam: string       
     ){}
 
     static fromJSON(json: LocatieJson): Locatie{
         const locatie = new Locatie(
             json.gemeente, 
-            json.straatnaam, 
             json.huisnummer, 
-            json.postcode);
+            json.locatieId,
+            json.postcode,
+            json.straatnaam);
         return locatie;
     }
 
     toJSON(): LocatieJson{
         return {
             gemeente: this.gemeente, 
-            straatnaam: this.straatnaam, 
             huisnummer: this.huisnummer, 
-            postcode: this.postcode};
+            locatieId: this.locatieId,
+            postcode: this.postcode,
+            straatnaam: this.straatnaam
+        };
     }
 
+    
+    public get locatieId() : number {
+        return this._locatieId;
+    }
+    
     
     get gemeente() : string {
         return this._gemeente;

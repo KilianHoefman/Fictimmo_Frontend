@@ -1,4 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
+import { Locatie } from './locatie.model';
 
 @Component({
   selector: 'app-locatie',
@@ -6,13 +7,13 @@ import { Component, OnInit, Input } from '@angular/core';
   styleUrls: ['./locatie.component.css']
 })
 export class LocatieComponent implements OnInit {
-  @Input() public gemeente : string = "gemeente";
-  @Input() public straatnaam : string = "straatnaam";
-  @Input() public huisnummer : string = "huisnummer";
-  @Input() public postcode : number = 9000;
+  @Input() locatie: Locatie;
+  // @Input() public gemeente : string;
+  // @Input() public straatnaam : string;
+  // @Input() public huisnummer : string;
+  // @Input() public postcode : number;
   constructor() { }
 
   ngOnInit(): void {
   }
-
 }

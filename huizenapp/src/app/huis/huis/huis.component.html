@@ -1,12 +1,9 @@
 <mat-card>
   <mat-card-header>
-    <mat-card-title>{{ huis.soort }}</mat-card-title>        
+    <mat-card-title>{{ huis.soort }} - Te {{huis.type}}</mat-card-title>        
   </mat-card-header>
   <mat-card-content>
-    <h3 mat-subheader>Locatie</h3>
-    <p>
-      <app-locatie></app-locatie>
-    </p>
+      <app-locatie></app-locatie>      
     <h3 mat-subheader>Prijs</h3>
     <b>{{ huis.price }}</b>
     <br />    
