@@ -3,6 +3,7 @@ import { Huis } from '../huis/huis.model';
 import { Locatie } from '../locatie/locatie.model';
 import { Detail } from 'src/app/detail/detail.model';
 import { ImmoBureau } from 'src/app/immo-bureau/immo-bureau.model';
+import { FormGroup, FormControl } from '@angular/forms';
 
 @Component({
   selector: 'app-add-huis',
@@ -11,9 +12,13 @@ import { ImmoBureau } from 'src/app/immo-bureau/immo-bureau.model';
 })
 export class AddHuisComponent implements OnInit {
   @Output() public newHuis = new EventEmitter<Huis>();
+  public huis: FormGroup;
   constructor() { }
 
   ngOnInit(): void {
+    this.huis = new FormGroup({
+      type: new FormControl('type')
+    })
   }
 
   addHuis(newhuistype: HTMLInputElement): boolean {    

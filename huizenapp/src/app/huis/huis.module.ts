@@ -7,6 +7,8 @@ import { HttpClientModule } from '@angular/common/http';
 import { HuisListComponent } from './huis-list/huis-list.component';
 import { AddHuisComponent } from './add-huis/add-huis.component';
 import { HuisFilterPipe } from './huis/huis-filter.pipe';
+import { ReactiveFormsModule } from '@angular/forms';
+
 
 
 @NgModule({
@@ -14,7 +16,8 @@ import { HuisFilterPipe } from './huis/huis-filter.pipe';
   imports: [
     CommonModule,
     HttpClientModule,
-     MaterialModule
+    MaterialModule,
+    ReactiveFormsModule
   ],
   exports: [HuisListComponent]
 })

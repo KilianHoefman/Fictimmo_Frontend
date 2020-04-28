@@ -1,5 +1,10 @@
-{{ locatie.gemeente }} , 
-{{ locatie.huisnummer }}, 
-{{ locatie.locatieId }}, 
-{{locatie.postcode}}, 
-{{locatie.straatnaam}}
+
+
+<div class="locatieVisible">
+    {{ locatie.gemeente }} - {{ locatie.postcode }}
+</div>
+<div class="locatieInvisible">
+    <p>
+        {{locatie.straatnaam}} - {{ locatie.huisnummer }}
+    </p>
+</div>
