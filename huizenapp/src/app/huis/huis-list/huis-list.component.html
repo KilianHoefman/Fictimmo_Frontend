@@ -1,29 +1,35 @@
 <div fxLayour="column" fxLayoutGape="3%">
-<app-add-huis></app-add-huis>
-<mat-card>
-  <mat-form-field>
-    <input
-         matInput
-         (keyup)="filterHuis$.next($event.target.value)"
-         placeholder="Filter op soort"
-         type="text"
-       />
-  </mat-form-field>
-</mat-card>
-<br>
-<div
-  fxLayout="row wrap"
-  fxLayout.xs="column"
-  fxLayoutGap="3%"
-  fxLayoutAlign="start">
-  
-<div
-    class="huis"
-    *ngFor="let localHuis of (huizen$ | async | huisFilter: filterHuisSoort)"
-    fxFlex="0 0 calc(25%-0.5%)"
-    fxFlex.xs="100%"
-    style="padding: 15px">
-    <app-huis [huis]="localHuis"></app-huis>
-  </div> 
+  <app-add-huis></app-add-huis>
+  <mat-card>
+    <mat-form-field>
+      <input
+        matInput
+        (keyup)="filterHuis$.next($event.target.value)"
+        placeholder="Filter op soort"
+        type="text"
+        />
+    </mat-form-field>
+  </mat-card>
+  <br>
+  <div *ngIf="huizen$ | async as huizen; else loading">
+    <div
+      fxLayout="row wrap"
+      fxLayout.xs="column"
+      fxLayoutGap="3%"
+      fxLayoutAlign="start">
+
+      <div
+        class="huis"
+        *ngFor="let localHuis of (huizen$ | async | huisFilter:
+        filterHuisSoort)"
+        fxFlex="0 0 calc(25%-0.5%)"
+        fxFlex.xs="100%"
+        style="padding: 15px">
+        <app-huis [huis]="localHuis"></app-huis>
+      </div>
+    </div>
+  </div>
 </div>
-</div>
+<ng-template #loading><div class="loading-indicator">
+  <mat-progress-spinner mode="indeterminate"></mat-progress-spinner>
+</div></ng-template>
