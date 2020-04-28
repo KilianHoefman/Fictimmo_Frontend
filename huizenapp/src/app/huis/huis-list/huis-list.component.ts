@@ -1,12 +1,13 @@
 import { Component, OnInit } from '@angular/core';
 import { Huis } from '../huis/huis.model';
 import { HuisDataService } from '../huis/huis-data.service';
-import { Subject, Observable } from 'rxjs';
+import { Subject, Observable, EMPTY } from 'rxjs';
  import {
    distinctUntilChanged,
    debounceTime,
    map,
-   filter
+   filter,
+   catchError
  } from 'rxjs/operators';
 
 @Component({
@@ -14,10 +15,11 @@ import { Subject, Observable } from 'rxjs';
   templateUrl: './huis-list.component.html',
   styleUrls: ['./huis-list.component.css']
 })
-export class HuisListComponent{
+export class HuisListComponent implements OnInit {
   public filterHuisSoort: string;
   public filterHuis$ = new Subject<string>();
-  private _fetchHuizen$: Observable<Huis[]> = this._huisDataService.huizen$;
+  private _fetchHuizen$: Observable<Huis[]>;
+  public errorMessage: string = '';
 
   constructor(private _huisDataService: HuisDataService){
     this.filterHuis$
@@ -27,6 +29,14 @@ export class HuisListComponent{
       map(val => val.toLowerCase())
     )
     .subscribe(val => (this.filterHuisSoort = val));
+  }
+  ngOnInit(): void {
+    this._fetchHuizen$ = this._huisDataService.huizen$.pipe(
+      catchError(err => {
+        this.errorMessage = err;
+        return EMPTY;
+      })
+    )
   }
 
   get huizen$() : Observable< Huis[] >{

@@ -34,6 +34,17 @@ export class Huis{
         return huis;
     }
 
+    toJSON(): HuisJson{
+        return <HuisJson>{
+            locatie: this.locatie,
+            korteBeschrijving: this.korteBeschrijving,
+            price: this.price,
+            detail: this.detail,
+            type: this.type,
+            soort:this.soort,
+            immoBureau: this.immoBureau
+        };
+    }
     get locatie(): Locatie{
         return this._locatie;
     }

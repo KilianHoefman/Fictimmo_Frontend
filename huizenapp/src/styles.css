@@ -4,3 +4,8 @@
 .mat-card-header{
     text-transform: uppercase;
 }
+
+.error {
+    background-color: #feebeb;
+    color: #c61e24;
+  }
