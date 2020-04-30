@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { map, tap, catchError } from 'rxjs/operators';
 import { Huis } from './huis.model';
-import { Observable, pipe, of, throwError } from 'rxjs';
+import { Observable, pipe, of, throwError, BehaviorSubject } from 'rxjs';
 import { environment } from 'src/environments/environment';
 
 
@@ -10,7 +10,19 @@ import { environment } from 'src/environments/environment';
   providedIn: 'root'
 })
 export class HuisDataService {
-  constructor(private http: HttpClient) {}
+  private _huizen$ = new BehaviorSubject<Huis[]>([]);
+  private _huizen: Huis[];
+
+  constructor(private http: HttpClient) {
+    this.huizen$.subscribe((huizen: Huis[]) => {
+      this._huizen = huizen;
+      this._huizen$.next(this._huizen);
+    })
+  }
+
+  get allHuizen$(): Observable<Huis[]> {
+    return this.huizen$;
+  }
 
   get huizen$(): Observable<Huis[]> {
     return this.http
@@ -18,6 +30,14 @@ export class HuisDataService {
       .pipe(catchError(this.handleError), tap(console.log) ,map((list: any[]): Huis[] => list.map(Huis.fromJSON)));
   }
 
+  addNewHuis(huis: Huis){
+    return this.http.post(`${environment.apiUrl}/huizen/`, huis.toJSON())
+    .pipe(catchError(this.handleError), map(Huis.fromJSON))
+    .subscribe((hu: Huis) => {
+      this._huizen = [...this._huizen, hu];
+    });
+  }
+  
   handleError(err: any): Observable<never> {
     let errorMessage: string;
     if (err.error instanceof ErrorEvent) {
@@ -29,12 +49,5 @@ export class HuisDataService {
     }
     console.error(err);
     return throwError(errorMessage);
-  }
-
-  addNewHuis(huis: Huis){
-    throw 'not implemented yet';
-    // return this.http.post(`${environment.apiUrl}/huizen/`, huis.toJSON())
-    // .pipe(catchError(this.handleError), map(Huis.fromJSON))
-    // .subscribe();
   }
 }
