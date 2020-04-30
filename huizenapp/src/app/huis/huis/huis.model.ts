@@ -1,6 +1,6 @@
 import { LocatieJson, Locatie } from '../locatie/locatie.model';
-import { DetailJson, Detail } from '../../detail/detail.model';
-import { ImmoBureauJson, ImmoBureau } from '../../immo-bureau/immo-bureau.model';
+import { DetailJson, Detail } from 'src/app/detail/detail.model';
+import { ImmoBureauJson, ImmoBureau } from 'src/app/immo-bureau/immo-bureau.model';
 
 export interface HuisJson{
     locatie: LocatieJson;
@@ -36,13 +36,13 @@ export class Huis{
 
     toJSON(): HuisJson{
         return <HuisJson>{
-            locatie: this.locatie,
+            locatie: this.locatie.toJSON(),
             korteBeschrijving: this.korteBeschrijving,
             price: this.price,
-            detail: this.detail,
+            detail: this.detail.toJSON(),
             type: this.type,
             soort:this.soort,
-            immoBureau: this.immoBureau
+            immoBureau: this.immoBureau.toJSON()
         };
     }
     get locatie(): Locatie{

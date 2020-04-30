@@ -43,9 +43,9 @@ export class HuisListComponent implements OnInit {
     return this._fetchHuizen$;
   }
 
-  // addNewHuis(huis) {
-  //   this._huisDataService.addNewHuis(huis);
-  // }
+  addNewHuis(huis) {
+    this._huisDataService.addNewHuis(huis);
+  }
 
   applyFilter(filter: string){
     this.filterHuisSoort = filter;

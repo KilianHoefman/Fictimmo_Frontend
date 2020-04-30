@@ -5,14 +5,14 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
 import { HuisListComponent } from './huis-list/huis-list.component';
-import { AddHuisComponent } from './add-huis/add-huis.component';
 import { HuisFilterPipe } from './huis/huis-filter.pipe';
 import { ReactiveFormsModule } from '@angular/forms';
+import { AddHuisComponent } from './add-huis/add-huis.component';
 
 
 
 @NgModule({
-  declarations: [HuisComponent, LocatieComponent, HuisListComponent, AddHuisComponent, HuisFilterPipe],
+  declarations: [HuisComponent, LocatieComponent, HuisListComponent, HuisFilterPipe, AddHuisComponent],
   imports: [
     CommonModule,
     HttpClientModule,

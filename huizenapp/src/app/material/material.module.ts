@@ -9,7 +9,9 @@ import { FlexLayoutModule } from '@angular/flex-layout';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatInputModule } from '@angular/material/input';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
-
+import { MatOptionModule } from '@angular/material/core';
+import { MatSelectModule } from '@angular/material/select';
+import {MatButtonModule} from '@angular/material/button';
 
 
 @NgModule({
@@ -24,7 +26,10 @@ import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
     MatFormFieldModule,
     MatSidenavModule,
     MatInputModule,
-    MatProgressSpinnerModule
+    MatProgressSpinnerModule,
+    MatOptionModule,
+    MatSelectModule,
+    MatButtonModule
   ],
   exports: [
     BrowserAnimationsModule,
@@ -35,7 +40,10 @@ import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
     MatFormFieldModule,
     MatSidenavModule,
     MatInputModule,
-    MatProgressSpinnerModule
+    MatProgressSpinnerModule,
+    MatOptionModule,
+    MatSelectModule,
+    MatButtonModule
   ]
 })
 export class MaterialModule { }

@@ -14,6 +14,15 @@ export class Detail{
         private _epcWaarde: number,
         private _kadastraalInkomen: number
     ){}
+    
+    toJSON(): DetailJson{
+        return  {
+            langeBeschrijving: this.langeBeschrijving, 
+            bewoonbareOppervlakte: this.bewoonbareOppervlakte, 
+            totaleOppervlakte: this.totaleOppervlakte, 
+            epcWaarde: this.epcWaarde, 
+            kadastraalInkomen: this.kadastraalInkomen};
+    }
 
     static fromJSON(json: DetailJson): Detail{
         const detail = new Detail(
@@ -25,14 +34,7 @@ export class Detail{
         return detail;
     }
 
-    toJSON(): DetailJson{
-        return {
-            langeBeschrijving: this.langeBeschrijving, 
-            bewoonbareOppervlakte: this.bewoonbareOppervlakte, 
-            totaleOppervlakte: this.totaleOppervlakte, 
-            epcWaarde: this.epcWaarde, 
-            kadastraalInkomen: this.kadastraalInkomen};
-    }
+    
 
     get langeBeschrijving() : string {
         return this._langeBeschrijving;

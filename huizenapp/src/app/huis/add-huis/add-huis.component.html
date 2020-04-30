@@ -1,20 +1,94 @@
 <mat-card>
-    <mat-card-title>Add Huis</mat-card-title>
-    <mat-card-content>
-      <form [formGroup]="huis">
-        <mat-form-field>
-          <input
-            matInput
-            aria-label="type"
-            placeholder="name"
-            type="text"
-            formControlName="type"
-          />
-        </mat-form-field>
-        <button mat-raised-button>
-          Add Huis
-        </button>
-      </form>
+    <mat-card-title>Voeg een huis toe:</mat-card-title>
+    <mat-card-content>        
+        
+        <form [formGroup]="locatie">
+                <h3>Locatie: </h3>
+                <mat-form-field>
+                    <input matInput type="text" aria-label="gemeente" placeholder="Gemeente" formControlName="gemeente">
+                </mat-form-field>
+                <mat-form-field>
+                    <input matInput type="text" aria-label="straatnaam" placeholder="Straatnaam" formControlName="straatnaam">
+                </mat-form-field>
+                <mat-form-field>
+                    <input matInput type="text" aria-label="huisnummer" placeholder="Huisnummer" formControlName="huisnummer">
+                </mat-form-field>
+                <mat-form-field>
+                    <input matInput type="number" aria-label="postcode" placeholder="Postcode" formControlName="postcode">
+                </mat-form-field>
+        </form>
+
+        <form [formGroup]="detail">
+                <h3>Detail:</h3>                
+                <mat-form-field>
+                    <input matInput type="number" aria-label="bewoonbareOppervlakte" placeholder="Bew. oppervlakte" formControlName="bewoonbareOppervlakte">
+                </mat-form-field>                
+                <mat-form-field>
+                    <input matInput type="number" aria-label="totaleOppervlakte" placeholder="Tot. oppervlakte" formControlName="totaleOppervlakte">
+                </mat-form-field>
+                <mat-form-field>
+                    <input matInput type="number" aria-label="epcWaarde" placeholder="EPC Waarde" formControlName="epcWaarde">
+                </mat-form-field>
+                <mat-form-field>
+                    <input matInput type="number" aria-label="kadastraalInkomen" placeholder="Kadastraal inkomen" formControlName="kadastraalInkomen">
+                </mat-form-field>
+                <mat-form-field>
+                    <textarea matInput class="bigText" type="text" aria-label="langeBeschrijving" placeholder="Lange beschrijving" formControlName="langeBeschrijving"></textarea>
+                </mat-form-field>
+        </form>
+        <form [formGroup]="huis" (ngSubmit)='onSubmit()'>                                    
+
+            <div>
+                <h3>Korte beschrijving</h3>
+                <mat-form-field>
+                    <textarea matInput class="bigText" type="text" aria-label="korteBeschrijving" placeholder="Korte beschrijving" formControlName="korteBeschrijving"></textarea>
+                </mat-form-field>
+            </div>
+            <mat-divider></mat-divider>   
+
+            <div>
+                <h3>Price:</h3>
+                <mat-form-field>
+                <input matInput type="number" aria-label="price" placeholder="Prijs" formControlName="price">
+            </mat-form-field>
+            </div>
+            <mat-divider></mat-divider>   
+            
+            <div>
+                <h3>Kopen of huren?</h3>
+                <mat-select placeholder="Selecteer type" aria-label="type" formControlName="type" required>
+                    <mat-option value="type">Koop</mat-option>
+                    <mat-option value="type">Huur</mat-option>
+                </mat-select>
+            </div>    
+            <mat-divider></mat-divider>   
+            <div>
+                <h3>Soort</h3>
+                <mat-select placeholder="Selecteer soort"
+                aria-label="soort"
+                formControlName="soort"
+                required>
+                <mat-option value="soort">Huis</mat-option>
+                <mat-option value="soort">Appartement</mat-option>
+                <mat-option value="soort">Grond</mat-option>
+                </mat-select>
+            </div>
+            <mat-divider></mat-divider>   
+            <div>
+                <h3>Immo bureau:</h3>
+                <mat-select placeholder="Selecteer immobureau"
+                        aria-label="brand name"
+                        formControlName="immoBureau"
+                        required> 
+                    <mat-option  *ngFor="let bureau of bureaus$ | async" [value]="bureau">
+                        {{ bureau.naam }}
+                    </mat-option>
+                </mat-select>
+            </div>
+            <br>
+            <button mat-raised-button color="primary" type="submit" [disabled]='!huis.valid'>
+                <strong>+</strong>
+            </button>
+        </form>
     </mat-card-content>
-  </mat-card>
-  <!--REMOVE {{ huis.value | json }}-->
+</mat-card>

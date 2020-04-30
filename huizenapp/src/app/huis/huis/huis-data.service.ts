@@ -27,7 +27,7 @@ export class HuisDataService {
   get huizen$(): Observable<Huis[]> {
     return this.http
       .get(`${environment.apiUrl}/huizen/`)      
-      .pipe(catchError(this.handleError), tap(console.log) ,map((list: any[]): Huis[] => list.map(Huis.fromJSON)));
+      .pipe(catchError(this.handleError), map((list: any[]): Huis[] => list.map(Huis.fromJSON)));
   }
 
   addNewHuis(huis: Huis){
