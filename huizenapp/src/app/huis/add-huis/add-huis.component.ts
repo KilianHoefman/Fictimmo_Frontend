@@ -19,29 +19,13 @@ export class AddHuisComponent implements OnInit {
   public locatie: FormGroup;
   public detail: FormGroup;
   public huis: FormGroup;
-  @Output() public newHuis = new EventEmitter<Huis>();
+  
 
   constructor(private fb: FormBuilder, private hds: HuisDataService, private bds: ImmoBureauDataService) { 
   }
 
-  // createLocatie(): FormGroup {
-  //   return this.fb.group({
-  //     gemeente: [''],
-  //     huisnummer: [''],
-  //     postcode: [''],
-  //     straatnaam: ['']
-  //   })
-  // }
-
-  // createDetail(): FormGroup {
-  //   return this.fb.group({
-  //     langeBeschrijving: [''],
-  //     bewoonbareOppervlakte: [''],
-  //     totaleOppervlakte: [''],
-  //     epcWaarde: [''],
-  //     kadastraalInkomen: ['']
-  //   })
-  // }
+  public readonly types = ['Koop', 'Huur'];
+  public readonly soorten = ['Huis', 'Appartement', 'Grond'];
 
   get bureaus$(): Observable<ImmoBureau[]>{
     return this._fetchBureaus$;
@@ -76,7 +60,16 @@ export class AddHuisComponent implements OnInit {
     const locatie = new Locatie('Merelbeke','Sint-elooistraat', '75', 9820);    
     const detail = new Detail('lange beschrijving', 500, 800, 230, 1200); 
 
-    console.log(this.huis.value)
+    console.log("Object")
+    console.log(new Huis(
+      new Locatie(this.locatie.value.gemeente, this.locatie.value.straatnaam, this.locatie.value.huisnummer, this.locatie.value.postcode), 
+      this.huis.value.korteBeschrijving, 
+      this.huis.value.price, 
+      new Detail(this.detail.value.langeBeschrijving, this.detail.value.bewoonbareOppervlakte, this.detail.value.totaleOppervlakte, this.detail.value.epcWaarde, this.detail.value.kadastraalInkomen), 
+      this.huis.value.type, 
+      this.huis.value.soort, 
+      this.huis.value.immoBureau));
+
     this.hds.addNewHuis(new Huis(
       new Locatie(this.locatie.value.gemeente, this.locatie.value.straatnaam, this.locatie.value.huisnummer, this.locatie.value.postcode), 
       this.huis.value.korteBeschrijving, 
@@ -84,7 +77,7 @@ export class AddHuisComponent implements OnInit {
       new Detail(this.detail.value.langeBeschrijving, this.detail.value.bewoonbareOppervlakte, this.detail.value.totaleOppervlakte, this.detail.value.epcWaarde, this.detail.value.kadastraalInkomen), 
       this.huis.value.type, 
       this.huis.value.soort, 
-      new ImmoBureau(this.huis.value.immoBureau))
+      this.huis.value.immoBureau)
     );
 
     // this.hds.addNewHuis(new Huis(

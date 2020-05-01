@@ -14,8 +14,7 @@ export class ImmoBureau{
     }
 
     static fromJSON(json: ImmoBureauJson): ImmoBureau{
-        const immoBureau = new ImmoBureau(
-            json.naam);
+        const immoBureau = new ImmoBureau(json.naam);
         return immoBureau;
     }
 

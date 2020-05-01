@@ -18,8 +18,7 @@ export class Locatie{
             gemeente: this.gemeente, 
             straatnaam: this.straatnaam,
             huisnummer: this.huisnummer,             
-            postcode: this.postcode
-            
+            postcode: this.postcode            
         };
 
     }

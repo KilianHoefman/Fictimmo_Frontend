@@ -9,7 +9,7 @@ import { environment } from 'src/environments/environment';
 @Injectable({
   providedIn: 'root'
 })
-export class HuisDataService {
+export class HuisDataService {  
   private _huizen$ = new BehaviorSubject<Huis[]>([]);
   private _huizen: Huis[];
 
@@ -32,7 +32,7 @@ export class HuisDataService {
 
   addNewHuis(huis: Huis){
     return this.http.post(`${environment.apiUrl}/huizen/`, huis.toJSON())
-    .pipe(catchError(this.handleError), map(Huis.fromJSON))
+    .pipe(tap(), catchError(this.handleError), map(Huis.fromJSON))
     .subscribe((hu: Huis) => {
       this._huizen = [...this._huizen, hu];
     });

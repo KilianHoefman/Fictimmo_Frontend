@@ -57,29 +57,20 @@
             <div>
                 <h3>Kopen of huren?</h3>
                 <mat-select placeholder="Selecteer type" aria-label="type" formControlName="type" required>
-                    <mat-option value="type">Koop</mat-option>
-                    <mat-option value="type">Huur</mat-option>
+                    <mat-option *ngFor="let type of types" [value]="type">{{ type }}</mat-option>
                 </mat-select>
             </div>    
             <mat-divider></mat-divider>   
             <div>
                 <h3>Soort</h3>
-                <mat-select placeholder="Selecteer soort"
-                aria-label="soort"
-                formControlName="soort"
-                required>
-                <mat-option value="soort">Huis</mat-option>
-                <mat-option value="soort">Appartement</mat-option>
-                <mat-option value="soort">Grond</mat-option>
+                <mat-select placeholder="Selecteer soort" aria-label="soort" formControlName="soort" required>
+                    <mat-option *ngFor="let soort of soorten" [value]="soort">{{ soort }}</mat-option>                    
                 </mat-select>
             </div>
             <mat-divider></mat-divider>   
             <div>
                 <h3>Immo bureau:</h3>
-                <mat-select placeholder="Selecteer immobureau"
-                        aria-label="brand name"
-                        formControlName="immoBureau"
-                        required> 
+                <mat-select placeholder="Selecteer immobureau" aria-label="name" formControlName="immoBureau" required> 
                     <mat-option  *ngFor="let bureau of bureaus$ | async" [value]="bureau">
                         {{ bureau.naam }}
                     </mat-option>
