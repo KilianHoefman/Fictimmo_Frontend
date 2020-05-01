@@ -7,7 +7,6 @@ import { ImmoBureau } from 'src/app/immo-bureau/immo-bureau.model';
 import { HuisDataService } from '../huis/huis-data.service';
 import { ImmoBureauDataService } from 'src/app/immo-bureau/immo-bureau-data.service';
 import { Observable } from 'rxjs';
-import { map } from 'rxjs/operators';
 
 @Component({
   selector: 'app-add-huis',
@@ -27,6 +26,9 @@ export class AddHuisComponent implements OnInit {
   public readonly types = ['Koop', 'Huur'];
   public readonly soorten = ['Huis', 'Appartement', 'Grond'];
 
+  //Temporary solution for getting immobureaus from API is there are doubles in the api.. NgFor in mat selector shows doubles..
+  // public readonly bureaus = ['CD-Vastgoed','Immo Da Vinci' , 'Immo Nobels'];
+
   get bureaus$(): Observable<ImmoBureau[]>{
     return this._fetchBureaus$;
   }
@@ -34,43 +36,31 @@ export class AddHuisComponent implements OnInit {
   ngOnInit(): void {
     this._fetchBureaus$ = this.bds.immoBureaus$;
     this.locatie = this.fb.group({
-      gemeente: [''],
-      huisnummer: [''],
-      postcode: [''],
-      straatnaam: ['']
+      gemeente: ['', [Validators.required, Validators.minLength(2)]],
+      huisnummer: ['', [Validators.required, Validators.minLength(1)]],
+      postcode: ['', [Validators.required, Validators.min(1000)]],
+      straatnaam: ['', Validators.required, Validators.minLength(3)]
     });
+
     this.detail = this.fb.group({
-      langeBeschrijving: [''],
-      bewoonbareOppervlakte: [''],
-      totaleOppervlakte: [''],
-      epcWaarde: [''],
-      kadastraalInkomen: ['']
+      langeBeschrijving: ['', Validators.required, Validators.minLength(30)],
+      bewoonbareOppervlakte: ['', Validators.required, Validators.min(15)],
+      totaleOppervlakte: ['', Validators.required, Validators.min(20)],
+      epcWaarde: ['', Validators.required, Validators.min(0), Validators.max(700)],
+      kadastraalInkomen: ['', Validators.required, Validators.min(100)]
     })
+
     this.huis = this.fb.group({
-      korteBeschrijving: [''],
-      price: [''],
-      type: [''],
-      soort: [''],
-      immoBureau: ['']
+      korteBeschrijving: ['', Validators.required, Validators.minLength(10), Validators.maxLength(200)],
+      price: ['', Validators.required],
+      type: ['', Validators.required],
+      soort: ['', Validators.required],
+      immoBureau: ['', Validators.required]
     })    
   }
 
-  onSubmit(){
-    //temporarily making a full object instead of the type which is created by the user through html    
-    const locatie = new Locatie('Merelbeke','Sint-elooistraat', '75', 9820);    
-    const detail = new Detail('lange beschrijving', 500, 800, 230, 1200); 
-
-    console.log("Object")
-    console.log(new Huis(
-      new Locatie(this.locatie.value.gemeente, this.locatie.value.straatnaam, this.locatie.value.huisnummer, this.locatie.value.postcode), 
-      this.huis.value.korteBeschrijving, 
-      this.huis.value.price, 
-      new Detail(this.detail.value.langeBeschrijving, this.detail.value.bewoonbareOppervlakte, this.detail.value.totaleOppervlakte, this.detail.value.epcWaarde, this.detail.value.kadastraalInkomen), 
-      this.huis.value.type, 
-      this.huis.value.soort, 
-      this.huis.value.immoBureau));
-
-    this.hds.addNewHuis(new Huis(
+  onSubmit(){    
+      this.hds.addNewHuis(new Huis(
       new Locatie(this.locatie.value.gemeente, this.locatie.value.straatnaam, this.locatie.value.huisnummer, this.locatie.value.postcode), 
       this.huis.value.korteBeschrijving, 
       this.huis.value.price, 
@@ -79,14 +69,18 @@ export class AddHuisComponent implements OnInit {
       this.huis.value.soort, 
       this.huis.value.immoBureau)
     );
+  }
 
-    // this.hds.addNewHuis(new Huis(
-    //   new Locatie(this.locatie.value.gemeente, this.locatie.value.huisnummer, this.locatie.value.postcode, this.locatie.value.straatnaam), 
-    //   this.huis.value.korteBeschrijving, 
-    //   this.huis.value.price, 
-    //   new Detail(this.detail.value.langeBeschrijving, this.detail.value.bewoonbareOppervlakte, this.detail.value.totaleOppervlakte, this.detail.value.epcWaarde, this.detail.value.kadastraalInkomen), 
-    //   this.huis.value.type, this.huis.value.soort, immoBureau))
-      //new ImmoBureau(this.huis.value.immoBureau)));
-    // this.newHuis.emit(new Huis(locatie, 'Korte', 0, detail, 'Koop', this.huis.value.name, immoBureau))
+  getErrorMessage(errors: any): string {
+    if (!errors) {
+      return null;
+    }
+    if (errors.required) {
+      return 'is required';
+    } else if (errors.minlength) {
+      return `needs at least ${errors.minlength.requiredLength} characters (got ${errors.minlength.actualLength})`;
+    } else if (errors.amountNoName) {
+      return `if amount is set you must set a name`;
+    }
   }
 }

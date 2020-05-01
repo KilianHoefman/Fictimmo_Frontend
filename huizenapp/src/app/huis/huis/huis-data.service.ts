@@ -1,8 +1,8 @@
-import { Injectable } from '@angular/core';
+import { Injectable, OnInit } from '@angular/core';
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
-import { map, tap, catchError } from 'rxjs/operators';
+import { map, tap, catchError, scan } from 'rxjs/operators';
 import { Huis } from './huis.model';
-import { Observable, pipe, of, throwError, BehaviorSubject } from 'rxjs';
+import { Observable, pipe, of, throwError, Subject, merge } from 'rxjs';
 import { environment } from 'src/environments/environment';
 
 
@@ -10,32 +10,30 @@ import { environment } from 'src/environments/environment';
   providedIn: 'root'
 })
 export class HuisDataService {  
-  private _huizen$ = new BehaviorSubject<Huis[]>([]);
-  private _huizen: Huis[];
+  private _addedHuizen$ = new Subject<Huis>();
+  private _allHuizen$: Observable<Huis[]> = merge(
+    this.huizen$,
+    this._addedHuizen$
+  ).pipe(scan((acc: Huis[], value: Huis) => [...acc, value]));
 
-  constructor(private http: HttpClient) {
-    this.huizen$.subscribe((huizen: Huis[]) => {
-      this._huizen = huizen;
-      this._huizen$.next(this._huizen);
-    })
-  }
+  constructor(private http: HttpClient) {}
 
   get allHuizen$(): Observable<Huis[]> {
-    return this.huizen$;
+    return this._allHuizen$;
   }
 
   get huizen$(): Observable<Huis[]> {
-    return this.http
-      .get(`${environment.apiUrl}/huizen/`)      
-      .pipe(catchError(this.handleError), map((list: any[]): Huis[] => list.map(Huis.fromJSON)));
+      return this.http.get(`${environment.apiUrl}/huizen/`).pipe(
+        catchError(this.handleError),
+        map((list: any[]): Huis[] => list.map(Huis.fromJSON))
+      );
   }
 
   addNewHuis(huis: Huis){
-    return this.http.post(`${environment.apiUrl}/huizen/`, huis.toJSON())
-    .pipe(tap(), catchError(this.handleError), map(Huis.fromJSON))
-    .subscribe((hu: Huis) => {
-      this._huizen = [...this._huizen, hu];
-    });
+    return this.http
+      .post(`${environment.apiUrl}/huizen/`, huis.toJSON())
+      .pipe(catchError(this.handleError), map(Huis.fromJSON))
+      .subscribe((hu: Huis) => this._addedHuizen$.next(hu));
   }
   
   handleError(err: any): Observable<never> {
