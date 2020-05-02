@@ -7,6 +7,7 @@
         (keyup)="filterHuis$.next($event.target.value)"
         placeholder="Filter op soort"
         type="text"
+        data-cy="filterInput"
         />
     </mat-form-field>
   </mat-card>
@@ -25,13 +26,13 @@
         fxFlex="0 0 calc(25%-0.5%)"
         fxFlex.xs="100%"
         style="padding: 15px">
-        <app-huis [huis]="localHuis"></app-huis>
+        <app-huis [huis]="localHuis" data-cy="huisCard"></app-huis>
       </div>
     </div>
   </div>
 </div>
 <ng-template #loadingOrError><div class="loading-indicator">
-  <mat-card class="error" *ngIf="errorMessage; else loading">
+  <mat-card class="error" data-cy="appError" *ngIf="errorMessage; else loading">
     got an error while loading the huizen list: {{ errorMessage }}
   </mat-card>
   <ng-template #loading>  

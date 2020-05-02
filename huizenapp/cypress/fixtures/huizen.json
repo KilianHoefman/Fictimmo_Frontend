@@ -1,0 +1,54 @@
+[
+  {
+    "id": 1,
+    "locatie": {
+      "locatieId": 7,
+      "gemeente": "Gent",
+      "straatnaam": "Vlaanderenstraat",
+      "huisnummer": "1A",
+      "postcode": 9000
+    },
+    "korteBeschrijving": "Dit is een korte beschrijving",
+    "price": 500000,
+    "detail": {
+      "detailID": 8,
+      "langeBeschrijving": "Dit is een lange beschrijving",
+      "bewoonbareOppervlakte": 200,
+      "totaleOppervlakte": 250,
+      "epcWaarde": 200,
+      "kadastraalInkomen": 1400
+    },
+    "type": "koop",
+    "soort": "huis",
+    "immoBureau": {
+      "immoBureauId": 2,
+      "naam": "Immo Nobels"
+    }
+  },
+  {
+    "id": 2,
+    "locatie": {
+      "locatieId": 4,
+      "gemeente": "Lokeren",
+      "straatnaam": "Nijsstraat",
+      "huisnummer": "69",
+      "postcode": 9160
+    },
+    "korteBeschrijving": "Dit is een korte beschrijving v4",
+    "price": 419000,
+    "detail": {
+      "detailID": 5,
+      "langeBeschrijving": "Dit is een lange beschrijving v4",
+      "bewoonbareOppervlakte": 220,
+      "totaleOppervlakte": 650,
+      "epcWaarde": 420,
+      "kadastraalInkomen": 950
+    },
+    "type": "koop",
+    "soort": "huis",
+    "immoBureau": {
+      "immoBureauId": 2,
+      "naam": "Immo Nobels"
+    }
+  }
+]
