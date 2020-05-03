@@ -12,6 +12,8 @@ import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { MatOptionModule } from '@angular/material/core';
 import { MatSelectModule } from '@angular/material/select';
 import {MatButtonModule} from '@angular/material/button';
+import { MatToolbarModule } from '@angular/material/toolbar';
+import { LayoutModule } from '@angular/cdk/layout';
 
 
 @NgModule({
@@ -29,7 +31,9 @@ import {MatButtonModule} from '@angular/material/button';
     MatProgressSpinnerModule,
     MatOptionModule,
     MatSelectModule,
-    MatButtonModule
+    MatButtonModule,
+    MatToolbarModule,
+    LayoutModule
   ],
   exports: [
     BrowserAnimationsModule,
@@ -43,7 +47,9 @@ import {MatButtonModule} from '@angular/material/button';
     MatProgressSpinnerModule,
     MatOptionModule,
     MatSelectModule,
-    MatButtonModule
+    MatButtonModule,
+    MatToolbarModule,
+    LayoutModule
   ]
 })
 export class MaterialModule { }
