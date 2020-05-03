@@ -1,5 +1,5 @@
 import { Component, OnInit, EventEmitter, Output } from '@angular/core';
-import { FormGroup, FormControl, Validators, FormBuilder, ValidatorFn } from '@angular/forms';
+import { FormGroup, FormControl, Validators, FormBuilder, ValidatorFn, ValidationErrors } from '@angular/forms';
 import { Huis } from '../huis/huis.model';
 import { Locatie } from '../locatie/locatie.model';
 import { Detail } from 'src/app/detail/detail.model';
@@ -45,7 +45,7 @@ export class AddHuisComponent implements OnInit {
     this.detail = this.fb.group({
       langeBeschrijving: ['', [Validators.required, Validators.minLength(1), Validators.minLength(100)]],
       bewoonbareOppervlakte: ['', [Validators.required, Validators.min(1)]],
-      totaleOppervlakte: ['', [Validators.required, Validators.min(1)]],
+      totaleOppervlakte: ['', [Validators.required, Validators.min(1)]/*, {forbiddenNumberValidator}*/],
       epcWaarde: ['', [Validators.required, Validators.min(0), Validators.max(900)]],
       kadastraalInkomen: ['', [Validators.required, Validators.min(1)]]
     });
@@ -91,9 +91,19 @@ export class AddHuisComponent implements OnInit {
     else if(errors.greaterThan){
       return `Totale opp. moest minstens bewoonbare opp. zijn`;
     }
+    else if(errors.totaalError){
+      return 'Totale opp. moet minstens gelijk zijn aan bewoonbare opp.'
+    }
   }
 }
 
+function forbiddenNumberValidator(control: FormGroup)
+  : { [key: string]: any } {
+    const bewoonbaar = control.get('bewoonbareOppervlakte');
+    const totaal = control.get('totaleOppervlakte');
+  
+    return bewoonbaar && totaal && bewoonbaar > totaal ? {'totaalError': true} : null;
+}
 // function greaterThanValidator(control: FormGroup) : { [key: string] : any } {
 //   if(control.get('totaleOppervlakte').value < control.get('bewoonbareOppervlakte').value){
 //     return {greaterThan: true};
