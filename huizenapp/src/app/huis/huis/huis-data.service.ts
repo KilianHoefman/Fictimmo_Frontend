@@ -15,6 +15,12 @@ export class HuisDataService {
 
   constructor(private http: HttpClient) {}
 
+  getHuis$(id: string) : Observable<Huis>{
+    return this.http
+    .get(`${environment.apiUrl}/huizen/${id}`)
+    .pipe(catchError(this.handleError), map(Huis.fromJSON));
+  }
+
   get allHuizen$(): Observable<Huis[]> {
     return this._huizen$;
   }

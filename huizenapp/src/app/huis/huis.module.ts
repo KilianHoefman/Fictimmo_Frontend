@@ -9,11 +9,12 @@ import { HuisFilterPipe } from './huis/huis-filter.pipe';
 import { ReactiveFormsModule } from '@angular/forms';
 import { AddHuisComponent } from './add-huis/add-huis.component';
 import { MainNavComponent } from '../main-nav/main-nav.component';
+import { HuisDetailComponent } from './huis-detail/huis-detail.component';
 
 
 
 @NgModule({
-  declarations: [HuisComponent, LocatieComponent, HuisListComponent, HuisFilterPipe, AddHuisComponent],
+  declarations: [HuisComponent, LocatieComponent, HuisListComponent, HuisFilterPipe, AddHuisComponent, HuisDetailComponent],
   imports: [
     CommonModule,
     HttpClientModule,
