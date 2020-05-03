@@ -5,17 +5,20 @@
   </mat-card-header>
   <mat-card-content>
       <app-locatie [locatie]="huis.locatie">
-        {{huis.locatie.gemeente}}
+        {{huis.locatie}}
       </app-locatie>      
+      <app-detail [detail]="huis.detail">
+        {{huis.detail}}
+      </app-detail>
+      <app-immo-bureau [immoBureau]="huis.immoBureau">
+        {{huis.immoBureau.naam}}
+      </app-immo-bureau>
     <h3 mat-subheader>Prijs</h3>
     <b>{{ huis.price }}</b>
     <br />    
     <h3 mat-subheader>Korte Beschrijving</h3>
     {{ huis.korteBeschrijving }}
   </mat-card-content>  
-  <button mat-fab color="primary" (click)="deleteHuis()">
-    <mat-icon>delete</mat-icon>
-  </button>
-    <a [routerLink]="['../detail/', huis.id]">Huizen</a>
+    <a [routerLink]="['../detail/', huis.id]">Detail</a>
 </mat-card>
 

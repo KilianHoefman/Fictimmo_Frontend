@@ -21,8 +21,5 @@ export class HuisComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  deleteHuis(){
-    this._huisDataService.deleteHuis(this.huis);
-  }
 
 }

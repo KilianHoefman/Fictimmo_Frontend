@@ -1,0 +1,7 @@
+.detailInvisible{
+    visibility: hidden;
+}
+
+.detailVisible{
+    margin-bottom: -2em;
+}
