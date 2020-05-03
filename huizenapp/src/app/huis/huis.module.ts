@@ -10,6 +10,8 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { AddHuisComponent } from './add-huis/add-huis.component';
 import { MainNavComponent } from '../main-nav/main-nav.component';
 import { HuisDetailComponent } from './huis-detail/huis-detail.component';
+import { RouterModule } from '@angular/router';
+import { DetailComponent } from '../detail/detail.component';
 
 
 
@@ -20,6 +22,7 @@ import { HuisDetailComponent } from './huis-detail/huis-detail.component';
     HttpClientModule,
     MaterialModule,
     ReactiveFormsModule,
+    RouterModule
   ],
   exports: [HuisListComponent]
 })

@@ -46,7 +46,7 @@ export class HuisDataService {
   deleteHuis(huis: Huis){
     return this.http
     .delete(`${environment.apiUrl}/huizen/${huis.id}`)
-    .pipe(tap(console.log), catchError(this.handleError))
+    .pipe(catchError(this.handleError))
     .subscribe(() => {
       this._huizen = this._huizen.filter(h => h.id != huis.id);
       this._huizen$.next(this._huizen);

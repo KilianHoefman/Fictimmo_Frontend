@@ -14,7 +14,7 @@ export class ImmoBureauDataService {
   get immoBureaus$(): Observable<ImmoBureau[]> {
     return this.http
       .get(`${environment.apiUrl}/ImmoBureaus/`)      
-      .pipe(tap(console.log), shareReplay(1), catchError(this.handleError),
+      .pipe(shareReplay(1), catchError(this.handleError),
       map((list: any[]): ImmoBureau[] => list.map(ImmoBureau.fromJSON)));
   }
 
