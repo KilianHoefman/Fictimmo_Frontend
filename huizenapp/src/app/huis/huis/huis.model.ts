@@ -1,6 +1,7 @@
 import { LocatieJson, Locatie } from '../locatie/locatie.model';
-import { DetailJson, Detail } from 'src/app/detail/detail.model';
-import { ImmoBureauJson, ImmoBureau } from 'src/app/immo-bureau/immo-bureau.model';
+import { DetailJson, Detail } from '../detail/detail.model';
+import { ImmoBureauJson, ImmoBureau } from '../immo-bureau/immo-bureau.model';
+
 
 export interface HuisJson{
     id: number;

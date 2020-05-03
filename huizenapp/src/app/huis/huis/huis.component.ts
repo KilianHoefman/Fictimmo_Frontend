@@ -1,7 +1,8 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { Huis } from './huis.model';
-import { Detail } from 'src/app/detail/detail.model';
+
 import { HuisDataService } from './huis-data.service';
+import { Detail } from '../detail/detail.model';
 
 @Component({
   selector: 'app-huis',

@@ -1,5 +1,3 @@
-import { Huis } from '../huis/huis/huis.model';
-
 export interface ImmoBureauJson{
     naam: string;
 }

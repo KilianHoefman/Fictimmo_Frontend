@@ -11,12 +11,13 @@ import { AddHuisComponent } from './add-huis/add-huis.component';
 import { MainNavComponent } from '../main-nav/main-nav.component';
 import { HuisDetailComponent } from './huis-detail/huis-detail.component';
 import { RouterModule } from '@angular/router';
-import { DetailComponent } from '../detail/detail.component';
+import { DetailComponent } from './detail/detail.component';
+import { ImmoBureauComponent } from './immo-bureau/immo-bureau.component';
 
 
 
 @NgModule({
-  declarations: [HuisComponent, LocatieComponent, HuisListComponent, HuisFilterPipe, AddHuisComponent, HuisDetailComponent],
+  declarations: [HuisComponent, LocatieComponent, HuisListComponent, HuisFilterPipe, AddHuisComponent, HuisDetailComponent, DetailComponent, ImmoBureauComponent],
   imports: [
     CommonModule,
     HttpClientModule,

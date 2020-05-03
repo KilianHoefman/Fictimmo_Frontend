@@ -2,11 +2,15 @@ import { Component, OnInit, EventEmitter, Output } from '@angular/core';
 import { FormGroup, FormControl, Validators, FormBuilder, ValidatorFn, ValidationErrors } from '@angular/forms';
 import { Huis } from '../huis/huis.model';
 import { Locatie } from '../locatie/locatie.model';
-import { Detail } from 'src/app/detail/detail.model';
-import { ImmoBureau } from 'src/app/immo-bureau/immo-bureau.model';
+
+
 import { HuisDataService } from '../huis/huis-data.service';
-import { ImmoBureauDataService } from 'src/app/immo-bureau/immo-bureau-data.service';
+
 import { Observable } from 'rxjs';
+import { ImmoBureau } from '../immo-bureau/immo-bureau.model';
+import { ImmoBureauDataService } from '../immo-bureau/immo-bureau-data.service';
+import { Detail } from '../detail/detail.model';
+
 
 @Component({
   selector: 'app-add-huis',
