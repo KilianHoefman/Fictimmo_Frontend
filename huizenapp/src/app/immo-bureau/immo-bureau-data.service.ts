@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { ImmoBureau } from './immo-bureau.model';
 import { Observable, throwError } from 'rxjs';
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
-import { catchError, tap, map } from 'rxjs/operators';
+import { catchError, tap, map, shareReplay } from 'rxjs/operators';
 import { environment } from 'src/environments/environment';
 
 @Injectable({
@@ -14,7 +14,8 @@ export class ImmoBureauDataService {
   get immoBureaus$(): Observable<ImmoBureau[]> {
     return this.http
       .get(`${environment.apiUrl}/ImmoBureaus/`)      
-      .pipe(catchError(this.handleError), tap(console.log) ,map((list: any[]): ImmoBureau[] => list.map(ImmoBureau.fromJSON)));
+      .pipe(tap(console.log), shareReplay(1), catchError(this.handleError),
+      map((list: any[]): ImmoBureau[] => list.map(ImmoBureau.fromJSON)));
   }
 
   handleError(err: any): Observable<never> {

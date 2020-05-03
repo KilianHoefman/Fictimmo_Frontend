@@ -1,6 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { Huis } from './huis.model';
 import { Detail } from 'src/app/detail/detail.model';
+import { HuisDataService } from './huis-data.service';
 
 @Component({
   selector: 'app-huis',
@@ -14,9 +15,13 @@ export class HuisComponent implements OnInit {
   // @Input() korteBeschrijving : string = "Huis met 4 slaapkamers";
   // @Input() type : string;
   // @Input() soort : string = "huis";
-  constructor() {}
+  constructor(private _huisDataService: HuisDataService) {}
 
   ngOnInit(): void {
+  }
+
+  deleteHuis(){
+    this._huisDataService.deleteHuis(this.huis);
   }
 
 }

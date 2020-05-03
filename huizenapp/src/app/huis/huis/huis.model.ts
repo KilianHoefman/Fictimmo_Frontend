@@ -3,6 +3,7 @@ import { DetailJson, Detail } from 'src/app/detail/detail.model';
 import { ImmoBureauJson, ImmoBureau } from 'src/app/immo-bureau/immo-bureau.model';
 
 export interface HuisJson{
+    id: number;
     locatie: LocatieJson;
     korteBeschrijving: string;
     price: number;
@@ -13,6 +14,7 @@ export interface HuisJson{
 }
 
 export class Huis{
+    private _id: number;
     constructor(
         private _locatie: Locatie,
         private _korteBeschrijving: string,
@@ -31,6 +33,7 @@ export class Huis{
             Detail.fromJSON(json.detail), 
             json.type, json.soort, 
             ImmoBureau.fromJSON(json.immoBureau));
+            huis._id = json.id;
         return huis;
     }
 
@@ -45,6 +48,11 @@ export class Huis{
             immoBureau: this.immoBureau.toJSON()
         };
     }
+
+    get id(): number{
+        return this._id;
+    }
+
     get locatie(): Locatie{
         return this._locatie;
     }
