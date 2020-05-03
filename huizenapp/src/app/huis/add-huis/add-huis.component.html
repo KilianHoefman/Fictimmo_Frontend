@@ -83,7 +83,9 @@
             <mat-form-field>
                 <textarea matInput class="bigText" type="text"
                     aria-label="langeBeschrijving" placeholder="Lange
-                    beschrijving" formControlName="langeBeschrijving"></textarea>
+                    beschrijving" formControlName="langeBeschrijving"                    
+                    cdkTextareaAutosize #autosize="cdkTextareaAutosize"
+                    ></textarea>
                 <mat-error
                     *ngIf="detail.get('langeBeschrijving')['errors'] &&
                     detail.get('langeBeschrijving').touched">
@@ -97,8 +99,9 @@
                 <mat-form-field>
                     <textarea matInput class="bigText" type="text"
                         aria-label="korteBeschrijving" placeholder="Korte
-                        beschrijving" formControlName="korteBeschrijving">
-                    </textarea>
+                        beschrijving" formControlName="korteBeschrijving"                        
+                        cdkTextareaAutosize #autosize="cdkTextareaAutosize"
+                        ></textarea>
                 <mat-error
                     *ngIf="huis.get('korteBeschrijving')['errors'] &&
                     huis.get('korteBeschrijving').touched">
@@ -126,7 +129,7 @@
                 <h3>Kopen of huren?</h3>
                 <mat-form-field>
                 <mat-select placeholder="Selecteer type" aria-label="type"
-                    formControlName="type" required>
+                    formControlName="type">
                     <mat-option *ngFor="let type of types" [value]="type">{{
                         type }}
                     </mat-option>                        
@@ -144,7 +147,7 @@
                 <h3>Soort</h3>
                 <mat-form-field>
                 <mat-select placeholder="Selecteer soort" aria-label="soort"
-                    formControlName="soort" required>
+                    formControlName="soort">
                     <mat-option *ngFor="let soort of soorten" [value]="soort">{{
                         soort }}</mat-option>
                 </mat-select>
@@ -160,7 +163,7 @@
                 <h3>Immo bureau:</h3>
                 <mat-form-field>
                 <mat-select placeholder="Selecteer immobureau" aria-label="name"
-                    formControlName="immoBureau" required>
+                    formControlName="immoBureau">
                     <mat-option *ngFor="let bureau of bureaus$ | async"
                         [value]="bureau">
                         {{ bureau.naam }}
@@ -174,8 +177,7 @@
             </mat-form-field>                
             </div>
             <br>
-            <button mat-raised-button color="primary" data-cy="submit" type="submit"
-                [disabled]='!huis.valid'>
+            <button mat-raised-button color="primary" data-cy="submit" type="submit" [disabled]='!huis.valid || !detail.valid || !locatie.valid'>
                 <strong>+</strong>
             </button>
         </form>
