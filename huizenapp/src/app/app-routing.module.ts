@@ -6,11 +6,14 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
 import { Routes, RouterModule } from '@angular/router';
 import { HuisDetailComponent } from './huis/huis-detail/huis-detail.component';
 import { HuisResolver } from './huis/huis/HuisResolver';
+import { AuthGuard } from './user/auth.guard';
 
 const appRoutes: Routes = [
-  {path: 'huizen/list', component: HuisListComponent},
-  {path: 'huizen/add', component: AddHuisComponent},
-  {path: 'huizen/detail/:id', component: HuisDetailComponent, resolve: {huis: HuisResolver}},
+  {
+    path: 'huis',
+    canActivate: [ AuthGuard ],
+    loadChildren: '../huis/huis.module'
+  },
   {path: '', redirectTo: 'huizen/list', pathMatch: 'full'},
   {path: '**', component: PageNotFoundComponent}
 ];

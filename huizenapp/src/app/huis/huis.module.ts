@@ -10,11 +10,16 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { AddHuisComponent } from './add-huis/add-huis.component';
 import { MainNavComponent } from '../main-nav/main-nav.component';
 import { HuisDetailComponent } from './huis-detail/huis-detail.component';
-import { RouterModule } from '@angular/router';
+import { RouterModule, Routes } from '@angular/router';
 import { DetailComponent } from './detail/detail.component';
 import { ImmoBureauComponent } from './immo-bureau/immo-bureau.component';
+import { HuisResolver } from './huis/HuisResolver';
 
-
+ const routes: Routes = [
+  {path: 'huizen/list', component: HuisListComponent},
+  {path: 'huizen/add', component: AddHuisComponent},
+  {path: 'huizen/detail/:id', component: HuisDetailComponent, resolve: {huis: HuisResolver}},
+ ]
 
 @NgModule({
   declarations: [HuisComponent, LocatieComponent, HuisListComponent, HuisFilterPipe, AddHuisComponent, HuisDetailComponent, DetailComponent, ImmoBureauComponent],
@@ -23,7 +28,7 @@ import { ImmoBureauComponent } from './immo-bureau/immo-bureau.component';
     HttpClientModule,
     MaterialModule,
     ReactiveFormsModule,
-    RouterModule
+    RouterModule.forChild(routes)
   ],
   exports: [HuisListComponent]
 })

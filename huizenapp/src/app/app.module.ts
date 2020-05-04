@@ -9,8 +9,7 @@ import { HuisModule } from './huis/huis.module';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { MainNavComponent } from './main-nav/main-nav.component';
 import { AppRoutingModule } from './app-routing.module';
-
-
+import { httpInterceptorProviders } from 'src/interceptors';
 
 
 @NgModule({
@@ -27,7 +26,7 @@ import { AppRoutingModule } from './app-routing.module';
     HuisModule,
     AppRoutingModule
   ],
-  providers: [],
+  providers: [httpInterceptorProviders],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
