@@ -10,6 +10,7 @@ import { Observable } from 'rxjs';
 import { ImmoBureau } from '../immo-bureau/immo-bureau.model';
 import { ImmoBureauDataService } from '../immo-bureau/immo-bureau-data.service';
 import { Detail } from '../detail/detail.model';
+import { Router } from '@angular/router';
 
 
 @Component({
@@ -25,7 +26,8 @@ export class AddHuisComponent implements OnInit {
   public huis: FormGroup;
   
 
-  constructor(private fb: FormBuilder, private _huisDataService: HuisDataService, private bds: ImmoBureauDataService) { 
+  constructor(private fb: FormBuilder, private _huisDataService: HuisDataService, private bds: ImmoBureauDataService,
+    private _router: Router) { 
   }
 
   public readonly types = ['Koop', 'Huur'];
@@ -66,6 +68,7 @@ export class AddHuisComponent implements OnInit {
 
 
   onSubmit(){    
+    if(
       this._huisDataService.addNewHuis(new Huis(
       new Locatie(this.locatie.value.gemeente, this.locatie.value.straatnaam, this.locatie.value.huisnummer, this.locatie.value.postcode), 
       this.huis.value.korteBeschrijving, 
@@ -74,7 +77,8 @@ export class AddHuisComponent implements OnInit {
       this.huis.value.type, 
       this.huis.value.soort, 
       this.huis.value.immoBureau)
-    );
+      ))
+      this._router.navigate(['huizen/list']);          
   }
 
   getErrorMessage(errors: any): string {
