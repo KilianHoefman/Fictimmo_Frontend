@@ -15,6 +15,8 @@ import {MatButtonModule} from '@angular/material/button';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { LayoutModule } from '@angular/cdk/layout';
 import {MatSnackBarModule} from '@angular/material/snack-bar';
+import {MatDatepickerModule} from '@angular/material/datepicker';
+
 
 
 
@@ -53,7 +55,8 @@ import {MatSnackBarModule} from '@angular/material/snack-bar';
     MatButtonModule,
     MatToolbarModule,
     LayoutModule,
-    MatSnackBarModule
+    MatSnackBarModule,
+    MatDatepickerModule
   ]
 })
 export class MaterialModule { }

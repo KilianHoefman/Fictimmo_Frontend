@@ -66,18 +66,19 @@ export class AuthenticationService {
   }
 
   register(
-    firstname: string,
-    lastname: string,
+    voornaam: string,
+    achternaam: string,
     email: string,
+    //birthdate: Date,
     password: string
   ): Observable<boolean> {
     return this.http
       .post(
         `${environment.apiUrl}/account/register`,
         {
-          firstname,
-          lastname,
-          email,
+          voornaam,
+          achternaam,
+          email,          
           password,
           passwordConfirmation: password,
         },

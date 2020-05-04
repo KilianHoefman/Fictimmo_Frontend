@@ -9,7 +9,7 @@ import {
 } from '@angular/forms';
 import { AuthenticationService } from '../authentication.service';
 import { Observable } from 'rxjs';
-import { map } from 'rxjs/operators';
+import { map, tap } from 'rxjs/operators';
 import { Router } from '@angular/router';
 import { HttpErrorResponse } from '@angular/common/http';
 
@@ -65,8 +65,8 @@ export class RegisterComponent implements OnInit {
 
   ngOnInit() {
     this.user = this.fb.group({
-      firstname: ['', Validators.required],
-      lastname: ['', Validators.required],
+      voornaam: ['', Validators.required],
+      achternaam: ['', Validators.required],
       email: [
         '',
         [Validators.required, Validators.email],
@@ -117,9 +117,10 @@ export class RegisterComponent implements OnInit {
   onSubmit() {
     this.authService
       .register(
-        this.user.value.firstname,
-        this.user.value.lastname,
+        this.user.value.voornaam,
+        this.user.value.achternaam,
         this.user.value.email,
+        //this.user.value.birthdate,
         this.user.value.passwordGroup.password
       )
       .subscribe(
@@ -129,7 +130,7 @@ export class RegisterComponent implements OnInit {
               this.router.navigateByUrl(this.authService.redirectUrl);
               this.authService.redirectUrl = undefined;
             } else {
-              this.router.navigate(['/recipe/list']);
+              this.router.navigate(['/huizen/list']);
             }
           } else {
             this.errorMessage = `Could not login`;
