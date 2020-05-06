@@ -1,0 +1,28 @@
+.notfound{
+    background: none;
+    background-color: white;
+}
+
+.images{
+    height: 500px;
+}
+
+.button{
+    width: 100%;
+}
+
+.title{    
+    font-size: large;
+}
+
+.header-image{
+    background-image: url('../../assets/images/Emotions-smiley-emoji_sad-512.png');
+    background-size: cover;
+}
+
+.card{
+    min-width: 650px;
+    max-width: 750px;
+    background-color: none;
+    border: none;
+}

@@ -1,1 +1,24 @@
-<h1>404: Page not found!</h1>
+<div fxLayout="row" fxLayoutAlign="center center" class="notfound">
+    
+    <mat-card class="card">
+        <h1 class="display-4">404: Pagina niet gevonden</h1>
+
+        <div >
+            <img src="../../assets/images/giphy.gif" alt="404: page not found"
+                class="images">
+        </div>
+
+        <mat-card-actions fxLayout="row" fxLayoutAlign="space-between center">
+            <button
+            class="button"
+              mat-raised-button
+              type="submit"
+              color="primary"
+              data-cy="return-button"
+              [routerLink]="['']" 
+            >
+            Keer terug
+            </button>
+          </mat-card-actions>
+    </mat-card>
+</div>
