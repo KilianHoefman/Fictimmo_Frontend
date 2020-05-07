@@ -1,10 +1,6 @@
 <div>
-    <div>
         {{ locatie.gemeente }} - {{ locatie.postcode }}
-    </div>
     <div *ngIf="fullLocatie">
-        <p>
             {{locatie.straatnaam}} - {{ locatie.huisnummer }}
-        </p>
     </div>
 </div>

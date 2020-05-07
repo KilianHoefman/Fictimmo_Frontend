@@ -6,11 +6,12 @@ export interface LocatieJson{
 }
 
 export class Locatie{  
+
     constructor(
         private _gemeente: string,
         private _straatnaam: string,
         private _huisnummer: string,        
-        private _postcode: number               
+        private _postcode: number ,   
     ){}
 
     toJSON(): LocatieJson{
@@ -20,7 +21,6 @@ export class Locatie{
             huisnummer: this.huisnummer,             
             postcode: this.postcode            
         };
-
     }
 
     static fromJSON(json: LocatieJson): Locatie{
@@ -28,14 +28,10 @@ export class Locatie{
             json.gemeente, 
             json.straatnaam,
             json.huisnummer,             
-            json.postcode);
+            json.postcode
+            );
         return locatie;
-    }
-    
-    // public get locatieId() : number {
-    //     return this._locatieId;
-    // }
-    
+    }    
     
     get gemeente() : string {
         return this._gemeente;
@@ -54,6 +50,10 @@ export class Locatie{
     
     get postcode() : number {
         return this._postcode;
+    }
+
+    convertAddress(){
+
     }
     
 }

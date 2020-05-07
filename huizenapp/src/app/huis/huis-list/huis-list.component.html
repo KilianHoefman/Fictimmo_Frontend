@@ -1,43 +1,29 @@
 <div fxLayour="column" fxLayoutGape="3%">
   <mat-card>
     <mat-form-field>
-      <input
-        matInput
-        (keyup)="filterHuis$.next($event.target.value)"
-        placeholder="Filter op soort"
-        type="text"
-        data-cy="filterInput"
-        />
+      <input matInput (keyup)="filterHuis$.next($event.target.value)" placeholder="Filter op soort" type="text"
+        data-cy="filterInput" />
     </mat-form-field>
   </mat-card>
   <br>
   <div *ngIf="huizen$ | async as huizen; else loadingOrError">
-    <div
-      fxLayout="row wrap"
-      fxLayout.xs="column"
-      fxLayoutGap="3%"
-      fxLayoutAlign="start">
+    <div fxLayout="row wrap" fxLayout.xs="column" fxLayoutGap="3%" fxLayoutAlign="start">
 
-      <div
-        class="huis"
-        *ngFor="let localHuis of (huizen$ | async | huisFilter:
-        filterHuisSoort)"
-        fxFlex="0 0 calc(25%-0.5%)"
-        fxFlex.xs="100%"
-        style="padding: 15px">
+      <div class="huis" *ngFor="let localHuis of (huizen$ | async | huisFilter:
+        filterHuisSoort)" fxFlex="0 0 calc(25%-0.5%)" fxFlex.xs="100%" style="padding: 15px">
         <app-huis [huis]="localHuis" data-cy="huisCard"></app-huis>
       </div>
     </div>
   </div>
 </div>
-<ng-template #loadingOrError><div class="loading-indicator">
-  <mat-card class="error" data-cy="appError" *ngIf="errorMessage; else loading">
-    got an error while loading the huizen list: {{ errorMessage }}
-  </mat-card>
-  <ng-template #loading>  
-    <mat-progress-spinner mode="indeterminate"></mat-progress-spinner>
-
-  </ng-template>
-  
-</div>
+<ng-template #loadingOrError>
+  <div class="loading-indicator">
+    <mat-card class="error" data-cy="appError" *ngIf="errorMessage; else
+      loading">
+      got an error while loading the huizen list: {{ errorMessage }}
+    </mat-card>
+    <ng-template #loading>
+      <mat-progress-spinner mode="indeterminate"></mat-progress-spinner>
+    </ng-template>
+  </div>
 </ng-template>

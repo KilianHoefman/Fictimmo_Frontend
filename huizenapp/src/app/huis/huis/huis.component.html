@@ -13,12 +13,19 @@
       <app-immo-bureau [immoBureau]="huis.immoBureau">
         {{huis.immoBureau.naam}}
       </app-immo-bureau>
-    <h3 mat-subheader>Prijs</h3>
+    <h3 mat-header>Prijs</h3>
     <b>{{ huis.price }}</b>
     <br />    
-    <h3 mat-subheader>Korte Beschrijving</h3>
-    {{ huis.korteBeschrijving }}
-  </mat-card-content>  
-    <a [routerLink]="['../detail/', huis.id]">Detail</a>
+    <p>
+      {{ huis.korteBeschrijving }}
+    </p>
+  </mat-card-content> 
+  <mat-card-footer>
+    <div class="button" layout="row" layout-align="center center">
+    <button mat-icon-button fxLayout="row" fxLayoutAlign="space-between center" color="primary" [routerLink]="['../detail/', huis.id]">
+      <mat-icon>more_horiz</mat-icon>
+    </button>
+  </div>
+    </mat-card-footer>
 </mat-card>
 
