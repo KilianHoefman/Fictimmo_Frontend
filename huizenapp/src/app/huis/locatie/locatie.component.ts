@@ -8,6 +8,7 @@ import { Locatie } from './locatie.model';
 })
 export class LocatieComponent implements OnInit {
   @Input() locatie: Locatie;
+  @Input() fullLocatie: string;
   // @Input() public gemeente : string;
   // @Input() public straatnaam : string;
   // @Input() public huisnummer : string;

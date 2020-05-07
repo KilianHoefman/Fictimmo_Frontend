@@ -4,7 +4,7 @@
       <mat-card-subtitle>TE {{ huis.type }}</mat-card-subtitle>        
     </mat-card-header>
     <mat-card-content>
-        <app-locatie [locatie]="huis.locatie">
+        <app-locatie [locatie]="huis.locatie" [fullLocatie]="true">
           {{huis.locatie}}
         </app-locatie>      
         <app-detail [detail]="huis.detail" [fullDetails]="true">
