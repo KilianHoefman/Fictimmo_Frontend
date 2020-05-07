@@ -1,8 +1,15 @@
-<div class="detailVisible">
-    {{detail.totaleOppervlakte}} m<sup>2</sup>
-</div>
-<div class="detailInvisible">
-    <p>
-    {{detail.langeBeschrijving}}, {{detail.bewoonbareOppervlakte}} , {{detail.epcWaarde}}, {{detail.kadastraalInkomen}}
-    </p>
+<div>    
+        <!-- <mat-card>
+            <mat-card-content> -->
+                <div>
+                    Totale oppervlakte: {{detail.totaleOppervlakte}} m<sup>2</sup>
+                </div>
+                <div *ngIf="fullDetails">
+                    Lange beschrijving: {{detail.langeBeschrijving}}<br>
+                    Bewoonbare oppverlakte: {{detail.bewoonbareOppervlakte}} <br>
+                    Epcwaarde: {{detail.epcWaarde}} <br>
+                    Kadastraal inkomen: {{detail.kadastraalInkomen}} <br>
+                </div>
+            <!-- </mat-card-content>
+        </mat-card> -->
 </div>

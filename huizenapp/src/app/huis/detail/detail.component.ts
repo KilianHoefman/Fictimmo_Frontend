@@ -8,6 +8,8 @@ import { Detail } from './detail.model';
 })
 export class DetailComponent implements OnInit {
   @Input() public detail: Detail;
+  @Input() public fullDetails: string;
+
   // @Input() public langeBeschrijving : string;
   // @Input() public bewoonbareOppervlakte : number;
   // @Input() public totaleOppervlakte : number;

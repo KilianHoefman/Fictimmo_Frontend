@@ -15,11 +15,6 @@
     font-size: large;
 }
 
-.header-image{
-    background-image: url('../../assets/images/Emotions-smiley-emoji_sad-512.png');
-    background-size: cover;
-}
-
 .card{
     min-width: 650px;
     max-width: 750px;

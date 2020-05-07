@@ -7,22 +7,23 @@
         <app-locatie [locatie]="huis.locatie">
           {{huis.locatie}}
         </app-locatie>      
-        <app-detail [detail]="huis.detail">
+        <app-detail [detail]="huis.detail" [fullDetails]="true">
           {{huis.detail}}
         </app-detail>
         <app-immo-bureau [immoBureau]="huis.immoBureau">
           {{huis.immoBureau.naam}}
         </app-immo-bureau>
-      <h3 mat-subheader>Prijs</h3>
+      <h3 mat-header>Prijs</h3>
       <b>{{ huis.price }}</b>
       <br />    
-      <h3 mat-subheader>Korte Beschrijving</h3>
+      <h3 mat-header>Korte Beschrijving</h3>
       {{ huis.korteBeschrijving }}
       <mat-card-footer>
+        <button mat-fab color="primary" [routerLink]="['../../list']">
+          <mat-icon>keyboard_backspace</mat-icon></button>
           <button mat-fab color="primary" (click)="deleteHuis()" [routerLink]="['../../list']">
       <mat-icon>delete</mat-icon>
     </button>
-      <a [routerLink]="['../../list']">Terug</a>
     </mat-card-footer>
     </mat-card-content>  
   </mat-card>
