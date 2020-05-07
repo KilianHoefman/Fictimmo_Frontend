@@ -1,32 +1,34 @@
-<mat-card>
-    <mat-card-header>
-      <mat-card-title>{{ huis.soort }}</mat-card-title>
-      <mat-card-subtitle>TE {{ huis.type }}</mat-card-subtitle>        
-    </mat-card-header>
-    <mat-card-content>
-      <h3 mat-header>Locatie</h3>
-        <app-locatie [locatie]="huis.locatie" [fullLocatie]="true">
-          {{huis.locatie}}
-        </app-locatie>      
-        <app-detail [detail]="huis.detail" [fullDetails]="true">
-          {{huis.detail}}
-        </app-detail>
-        <app-immo-bureau [immoBureau]="huis.immoBureau">
-          {{huis.immoBureau.naam}}
-        </app-immo-bureau>
-      <h3 mat-header>Prijs</h3>
-      <b>{{ huis.price }}</b>
-      <br />    
-      <h3 mat-header>Korte Beschrijving</h3>
-      {{ huis.korteBeschrijving }}
-      <mat-card-footer>
-        <button mat-fab color="primary" [routerLink]="['../../list']">
-          <mat-icon>keyboard_backspace</mat-icon></button>
-          <button mat-fab color="primary" (click)="deleteHuis()" [routerLink]="['../../list']">
-      <mat-icon>delete</mat-icon>
-    </button>
+<mat-card style="padding-left: 15px;">
+  <h1 mat-header style="text-transform: uppercase; margin-bottom: -15px;">{{huis.soort}}</h1>
+  <h2 mat-header>Te {{ huis.type }}</h2>
+  <mat-card-content>
+    <h3 mat-header>Locatie</h3>
+    <div>
+      <app-locatie [locatie]="huis.locatie" [fullLocatie]="true">
+        {{huis.locatie}}
+      </app-locatie>
+    </div>
+    <div>
+      <app-detail [detail]="huis.detail" [fullDetails]="true">
+        {{huis.detail}}
+      </app-detail>
+    </div>
+
+    <app-immo-bureau [immoBureau]="huis.immoBureau">
+      {{huis.immoBureau.naam}}
+    </app-immo-bureau>
+    <h3 mat-header>Prijs</h3>
+    <b>{{ huis.price }}</b>
+    <br />
+    <h3 mat-header>Korte Beschrijving</h3>
+    {{ huis.korteBeschrijving }}
+    <mat-card-footer>
+      <button mat-fab color="primary" [routerLink]="['../../list']">
+        <mat-icon>keyboard_backspace</mat-icon></button>
+      <button mat-fab color="primary" (click)="deleteHuis()"
+        [routerLink]="['../../list']">
+        <mat-icon>delete</mat-icon>
+      </button>
     </mat-card-footer>
-    </mat-card-content>  
-  </mat-card>
-  
-  
+  </mat-card-content>
+</mat-card>

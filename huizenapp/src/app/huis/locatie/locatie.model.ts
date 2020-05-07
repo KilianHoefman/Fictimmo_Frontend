@@ -3,6 +3,8 @@ export interface LocatieJson{
     huisnummer: string;    
     postcode: number;
     straatnaam: string;
+    latitude: number;
+    longitude: number;
 }
 
 export class Locatie{  
@@ -11,7 +13,9 @@ export class Locatie{
         private _gemeente: string,
         private _straatnaam: string,
         private _huisnummer: string,        
-        private _postcode: number ,   
+        private _postcode: number,
+        private _latitude: number,
+        private _longitude: number   
     ){}
 
     toJSON(): LocatieJson{
@@ -19,7 +23,9 @@ export class Locatie{
             gemeente: this.gemeente, 
             straatnaam: this.straatnaam,
             huisnummer: this.huisnummer,             
-            postcode: this.postcode            
+            postcode: this.postcode,
+            latitude: this._latitude,
+            longitude: this._longitude
         };
     }
 
@@ -28,7 +34,9 @@ export class Locatie{
             json.gemeente, 
             json.straatnaam,
             json.huisnummer,             
-            json.postcode
+            json.postcode,
+            json.latitude,
+            json.longitude
             );
         return locatie;
     }    
@@ -52,8 +60,12 @@ export class Locatie{
         return this._postcode;
     }
 
-    convertAddress(){
-
+    get latitude(): number{
+        return this._latitude;
     }
-    
+
+    get longitude(): number{
+        return this._longitude;
+    }
+
 }

@@ -1,6 +1,17 @@
 <div>
         {{ locatie.gemeente }} - {{ locatie.postcode }}
-    <div *ngIf="fullLocatie">
-            {{locatie.straatnaam}} - {{ locatie.huisnummer }}
-    </div>
+        <div *ngIf="fullLocatie">
+                {{locatie.straatnaam}} - {{ locatie.huisnummer }}
+                <div>
+                        <agm-map [latitude]="locatie.latitude" [zoom]="8" [longitude]="locatie.longitude">
+                                <agm-marker [latitude]="locatie.latitude" [longitude]="locatie.longitude"></agm-marker>
+                        </agm-map>
+                </div>
+        </div>
 </div>
+
+
+
+
+<!-- https://www.google.com/maps/@?api=1&map_action=map&parameters
+http://maps.google.com/maps?q=24.197611,120.780512 -->

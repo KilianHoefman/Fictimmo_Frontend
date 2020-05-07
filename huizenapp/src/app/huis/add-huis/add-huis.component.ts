@@ -24,6 +24,8 @@ export class AddHuisComponent implements OnInit {
   public locatie: FormGroup;
   public detail: FormGroup;
   public huis: FormGroup;
+  private _latitude: number = 0;
+  private _longitude: number = 0;
   
 
   constructor(private fb: FormBuilder, private _huisDataService: HuisDataService, private bds: ImmoBureauDataService,
@@ -45,7 +47,7 @@ export class AddHuisComponent implements OnInit {
       gemeente: ['', [Validators.required, Validators.minLength(2)]],
       huisnummer: ['', [Validators.required, Validators.minLength(1)]],
       postcode: ['', [Validators.required, Validators.min(1000), Validators.max(9999)]],
-      straatnaam: ['', [Validators.required, Validators.minLength(3), Validators.max(50)]]
+      straatnaam: ['', [Validators.required, Validators.minLength(3), Validators.max(50)]],
     });
 
     this.detail = this.fb.group({
@@ -70,7 +72,7 @@ export class AddHuisComponent implements OnInit {
   onSubmit(){    
     if(
       this._huisDataService.addNewHuis(new Huis(
-      new Locatie(this.locatie.value.gemeente, this.locatie.value.straatnaam, this.locatie.value.huisnummer, this.locatie.value.postcode), 
+      new Locatie(this.locatie.value.gemeente, this.locatie.value.straatnaam, this.locatie.value.huisnummer, this.locatie.value.postcode, this._latitude, this._longitude), 
       this.huis.value.korteBeschrijving, 
       this.huis.value.price, 
       new Detail(this.detail.value.langeBeschrijving, this.detail.value.bewoonbareOppervlakte, this.detail.value.totaleOppervlakte, this.detail.value.epcWaarde, this.detail.value.kadastraalInkomen), 

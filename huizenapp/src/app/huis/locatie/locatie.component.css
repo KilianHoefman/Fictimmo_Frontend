@@ -5,3 +5,11 @@
 .locatieVisible{
     margin-bottom: -2em;
 }
+
+agm-map {
+    margin-top: -7em;
+    margin-right: 10em;
+    height: 500px;
+    width: 500px;
+    float: right;
+}

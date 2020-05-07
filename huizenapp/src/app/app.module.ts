@@ -10,6 +10,9 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
 import { MainNavComponent } from './main-nav/main-nav.component';
 import { AppRoutingModule } from './app-routing.module';
 import { httpInterceptorProviders } from 'src/interceptors';
+import { AgmCoreModule, GoogleMapsAPIWrapper } from '@agm/core';
+import { MapsAPILoader} from '@agm/core';
+
 
 
 @NgModule({
@@ -24,9 +27,10 @@ import { httpInterceptorProviders } from 'src/interceptors';
     MaterialModule,
     UserModule,
     HuisModule,
+    AgmCoreModule.forRoot(),
     AppRoutingModule
   ],
-  providers: [httpInterceptorProviders],
+  providers: [httpInterceptorProviders, GoogleMapsAPIWrapper],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

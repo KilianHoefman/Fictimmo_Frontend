@@ -5,3 +5,16 @@
 .detailVisible{
     margin-bottom: -2em;
 }
+
+.mat-card{
+    height: 1000px;
+}
+
+mat-card-footer{
+    padding: 2em 5em 5em 2em;
+}
+
+mat-card-footer > button {
+    margin-right: 5em;
+    margin-left: 2em;
+}

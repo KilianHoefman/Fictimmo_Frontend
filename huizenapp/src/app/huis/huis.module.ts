@@ -14,6 +14,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { DetailComponent } from './detail/detail.component';
 import { ImmoBureauComponent } from './immo-bureau/immo-bureau.component';
 import { HuisResolver } from './huis/HuisResolver';
+import { AgmCoreModule, GoogleMapsAPIWrapper } from '@agm/core';
 
  const routes: Routes = [
   {path: 'huizen/list', component: HuisListComponent},
@@ -28,8 +29,10 @@ import { HuisResolver } from './huis/HuisResolver';
     HttpClientModule,
     MaterialModule,
     ReactiveFormsModule,
+    AgmCoreModule,
     RouterModule.forChild(routes)
   ],
+  providers: [GoogleMapsAPIWrapper],
   exports: [HuisListComponent]
 })
 export class HuisModule { }
