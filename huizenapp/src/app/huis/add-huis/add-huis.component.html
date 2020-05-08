@@ -1,117 +1,138 @@
 <mat-card>
     <mat-card-title>Voeg een huis toe:</mat-card-title>
     <mat-card-content>
-
-        <form [formGroup]="locatie">
-            <h3>Locatie: </h3>
-            <mat-form-field>
-                <input matInput type="text" aria-label="gemeente"
-                    placeholder="Gemeente" formControlName="gemeente">
-                <mat-error
-                    *ngIf="locatie.get('gemeente')['errors'] &&
-                    locatie.get('gemeente').touched">
-                    {{ getErrorMessage(locatie.get('gemeente')['errors']) }}
-                </mat-error>
-            </mat-form-field>
-            <mat-form-field>
-                <input matInput type="text" aria-label="straatnaam"
-                    placeholder="Straatnaam" formControlName="straatnaam">
-                <mat-error
-                    *ngIf="locatie.get('straatnaam')['errors'] &&
-                    locatie.get('straatnaam').touched">
-                    {{ getErrorMessage(locatie.get('straatnaam')['errors']) }}
-                </mat-error>
-            </mat-form-field>
-            <mat-form-field>
-                <input matInput type="text" aria-label="huisnummer"
-                    placeholder="Huisnummer" formControlName="huisnummer">
-                <mat-error
-                    *ngIf="locatie.get('huisnummer')['errors'] &&
-                    locatie.get('huisnummer').touched">
-                    {{ getErrorMessage(locatie.get('huisnummer')['errors']) }}
-                </mat-error>
-            </mat-form-field>
-            <mat-form-field>
-                <input matInput type="number" aria-label="postcode"
-                    placeholder="Postcode" formControlName="postcode">
-                <mat-error
-                    *ngIf="locatie.get('postcode')['errors'] &&
-                    locatie.get('postcode').touched">
-                    {{ getErrorMessage(locatie.get('postcode')['errors']) }}
-                </mat-error>
-            </mat-form-field>
-
-        </form>
-
-        <form [formGroup]="detail">
-            <h3>Detail:</h3>
-            <mat-form-field>
-                <input matInput type="number" aria-label="bewoonbareOppervlakte"
-                    placeholder="Bew. oppervlakte" formControlName="bewoonbareOppervlakte">
-                <mat-error
-                    *ngIf="detail.get('bewoonbareOppervlakte')['errors'] &&
-                    detail.get('bewoonbareOppervlakte').touched">
-                    {{ getErrorMessage(detail.get('bewoonbareOppervlakte')['errors']) }}
-                </mat-error>
-            </mat-form-field>
-            <mat-form-field>
-                <input matInput type="number" aria-label="totaleOppervlakte"
-                    placeholder="Tot. oppervlakte" formControlName="totaleOppervlakte">
-                <mat-error
-                    *ngIf="detail.get('totaleOppervlakte')['errors'] &&
-                    detail.get('totaleOppervlakte').touched">
-                    {{ getErrorMessage(detail.get('totaleOppervlakte')['errors']) }}
-                </mat-error>
-            </mat-form-field>
-            <mat-form-field>
-                <input matInput type="number" aria-label="epcWaarde" placeholder="EPC Waarde" formControlName="epcWaarde">
-                <mat-error
-                    *ngIf="detail.get('epcWaarde')['errors'] &&
-                    detail.get('epcWaarde').touched">
-                    {{ getErrorMessage(detail.get('epcWaarde')['errors']) }}
-                </mat-error>
-            </mat-form-field>
-            <mat-form-field>
-                <input matInput type="number" aria-label="kadastraalInkomen"
-                    placeholder="Kadastraal inkomen" formControlName="kadastraalInkomen">
-                <mat-error
-                    *ngIf="detail.get('kadastraalInkomen')['errors'] &&
-                    detail.get('kadastraalInkomen').touched">
-                    {{ getErrorMessage(detail.get('kadastraalInkomen')['errors']) }}
-                </mat-error>
-            </mat-form-field>
-            <mat-form-field>
-                <textarea matInput class="bigText" type="text"
-                    aria-label="langeBeschrijving" placeholder="Lange
-                    beschrijving" formControlName="langeBeschrijving"                    
-                    cdkTextareaAutosize #autosize="cdkTextareaAutosize"
-                    ></textarea>
-                <mat-error
-                    *ngIf="detail.get('langeBeschrijving')['errors'] &&
-                    detail.get('langeBeschrijving').touched">
-                    {{ getErrorMessage(detail.get('langeBeschrijving')['errors']) }}
-                </mat-error>
-            </mat-form-field>
-        </form>
+        <mat-card>
+            <form [formGroup]="locatie">
+                <h3>Locatie: </h3>
+                <mat-form-field>
+                    <input matInput type="text" aria-label="gemeente"
+                        placeholder="Gemeente" formControlName="gemeente">
+                    <mat-error
+                        *ngIf="locatie.get('gemeente')['errors'] &&
+                        locatie.get('gemeente').touched">
+                        {{ getErrorMessage(locatie.get('gemeente')['errors']) }}
+                    </mat-error>
+                </mat-form-field>
+                <mat-form-field>
+                    <input matInput type="text" aria-label="straatnaam"
+                        placeholder="Straatnaam" formControlName="straatnaam">
+                    <mat-error
+                        *ngIf="locatie.get('straatnaam')['errors'] &&
+                        locatie.get('straatnaam').touched">
+                        {{ getErrorMessage(locatie.get('straatnaam')['errors'])
+                        }}
+                    </mat-error>
+                </mat-form-field>
+                <mat-form-field>
+                    <input matInput type="text" aria-label="huisnummer"
+                        placeholder="Huisnummer" formControlName="huisnummer">
+                    <mat-error
+                        *ngIf="locatie.get('huisnummer')['errors'] &&
+                        locatie.get('huisnummer').touched">
+                        {{ getErrorMessage(locatie.get('huisnummer')['errors'])
+                        }}
+                    </mat-error>
+                </mat-form-field>
+                <mat-form-field>
+                    <input matInput type="number" aria-label="postcode"
+                        placeholder="Postcode" formControlName="postcode">
+                    <mat-error
+                        *ngIf="locatie.get('postcode')['errors'] &&
+                        locatie.get('postcode').touched">
+                        {{ getErrorMessage(locatie.get('postcode')['errors']) }}
+                    </mat-error>
+                </mat-form-field>
+            </form>
+        </mat-card>
+            <br>    
+        <mat-card>
+            <form [formGroup]="detail">
+                <h3>Detail:</h3>
+                <mat-form-field>
+                    <input matInput type="number"
+                        aria-label="bewoonbareOppervlakte"
+                        placeholder="Bew. oppervlakte"
+                        formControlName="bewoonbareOppervlakte">
+                    <mat-error
+                        *ngIf="detail.get('bewoonbareOppervlakte')['errors'] &&
+                        detail.get('bewoonbareOppervlakte').touched">
+                        {{
+                        getErrorMessage(detail.get('bewoonbareOppervlakte')['errors'])
+                        }}
+                    </mat-error>
+                </mat-form-field>
+                <mat-form-field>
+                    <input matInput type="number" aria-label="totaleOppervlakte"
+                        placeholder="Tot. oppervlakte"
+                        formControlName="totaleOppervlakte">
+                    <mat-error
+                        *ngIf="detail.get('totaleOppervlakte')['errors'] &&
+                        detail.get('totaleOppervlakte').touched">
+                        {{
+                        getErrorMessage(detail.get('totaleOppervlakte')['errors'])
+                        }}
+                    </mat-error>
+                </mat-form-field>
+                <mat-form-field>
+                    <input matInput type="number" aria-label="epcWaarde"
+                        placeholder="EPC Waarde" formControlName="epcWaarde">
+                    <mat-error
+                        *ngIf="detail.get('epcWaarde')['errors'] &&
+                        detail.get('epcWaarde').touched">
+                        {{ getErrorMessage(detail.get('epcWaarde')['errors']) }}
+                    </mat-error>
+                </mat-form-field>
+                <mat-form-field>
+                    <input matInput type="number" aria-label="kadastraalInkomen"
+                        placeholder="Kadastraal inkomen"
+                        formControlName="kadastraalInkomen">
+                    <mat-error
+                        *ngIf="detail.get('kadastraalInkomen')['errors'] &&
+                        detail.get('kadastraalInkomen').touched">
+                        {{
+                        getErrorMessage(detail.get('kadastraalInkomen')['errors'])
+                        }}
+                    </mat-error>
+                </mat-form-field>
+                <mat-form-field>
+                    <textarea matInput class="bigText" type="text"
+                        aria-label="langeBeschrijving" placeholder="Lange
+                        beschrijving" formControlName="langeBeschrijving"
+                        cdkTextareaAutosize #autosize="cdkTextareaAutosize"></textarea>
+                    <mat-error
+                        *ngIf="detail.get('langeBeschrijving')['errors'] &&
+                        detail.get('langeBeschrijving').touched">
+                        {{
+                        getErrorMessage(detail.get('langeBeschrijving')['errors'])
+                        }}
+                    </mat-error>
+                </mat-form-field>
+            </form>
+        </mat-card>
+        <br>
         <form [formGroup]="huis" (ngSubmit)='onSubmit()'>
             <div>
+                <mat-card>
                 <h3>Korte beschrijving</h3>
                 <mat-form-field>
                     <textarea matInput class="bigText" type="text"
                         aria-label="korteBeschrijving" placeholder="Korte
-                        beschrijving" formControlName="korteBeschrijving"                        
-                        cdkTextareaAutosize #autosize="cdkTextareaAutosize"
-                        ></textarea>
-                <mat-error
-                    *ngIf="huis.get('korteBeschrijving')['errors'] &&
-                    huis.get('korteBeschrijving').touched">
-                    {{ getErrorMessage(huis.get('korteBeschrijving')['errors']) }}
-                </mat-error>
+                        beschrijving" formControlName="korteBeschrijving"
+                        cdkTextareaAutosize #autosize="cdkTextareaAutosize"></textarea>
+                    <mat-error
+                        *ngIf="huis.get('korteBeschrijving')['errors'] &&
+                        huis.get('korteBeschrijving').touched">
+                        {{
+                        getErrorMessage(huis.get('korteBeschrijving')['errors'])
+                        }}
+                    </mat-error>
                 </mat-form-field>
+            </mat-card>
             </div>
             <mat-divider></mat-divider>
-
+            <br>
             <div>
+                <mat-card>
                 <h3>Price:</h3>
                 <mat-form-field>
                     <input matInput type="number" aria-label="price"
@@ -122,62 +143,73 @@
                         {{ getErrorMessage(huis.get('price')['errors']) }}
                     </mat-error>
                 </mat-form-field>
+            </mat-card>   
             </div>
-            <mat-divider></mat-divider>
 
+            <br>
             <div>
+                <mat-card>
                 <h3>Kopen of huren?</h3>
                 <mat-form-field>
-                <mat-select placeholder="Selecteer type" aria-label="type"
-                    formControlName="type">
-                    <mat-option *ngFor="let type of types" [value]="type">{{
-                        type }}
-                    </mat-option>                        
-                </mat-select>
-                <mat-error
-                    *ngIf="huis.get('type')['errors'] &&
-                    huis.get('type').touched">
-                    {{ getErrorMessage(huis.get('type')['errors']) }}
-                </mat-error>
-            </mat-form-field>
-                
-            </div>
-            <mat-divider></mat-divider>
-            <div>
-                <h3>Soort</h3>
-                <mat-form-field>
-                <mat-select placeholder="Selecteer soort" aria-label="soort"
-                    formControlName="soort">
-                    <mat-option *ngFor="let soort of soorten" [value]="soort">{{
-                        soort }}</mat-option>
-                </mat-select>
-                <mat-error
-                    *ngIf="huis.get('soort')['errors'] &&
-                    huis.get('soort').touched">
-                    {{ getErrorMessage(huis.get('soort')['errors']) }}
-                </mat-error>
-            </mat-form-field>
-            </div>
-            <mat-divider></mat-divider>
-            <div>
-                <h3>Immo bureau:</h3>
-                <mat-form-field>
-                <mat-select placeholder="Selecteer immobureau" aria-label="name"
-                    formControlName="immoBureau">
-                    <mat-option *ngFor="let bureau of bureaus$ | async"
-                        [value]="bureau">
-                        {{ bureau.naam }}
-                    </mat-option>
-                </mat-select>
-                <mat-error
-                    *ngIf="huis.get('immoBureau')['errors'] &&
-                    huis.get('immoBureau').touched">
-                    {{ getErrorMessage(huis.get('immoBureau')['errors']) }}
-                </mat-error>
-            </mat-form-field>                
+                    <mat-select placeholder="Selecteer type" aria-label="type"
+                        formControlName="type">
+                        <mat-option *ngFor="let type of types" [value]="type">{{
+                            type }}
+                        </mat-option>
+                    </mat-select>
+                    <mat-error
+                        *ngIf="huis.get('type')['errors'] &&
+                        huis.get('type').touched">
+                        {{ getErrorMessage(huis.get('type')['errors']) }}
+                    </mat-error>
+                </mat-form-field>
+            </mat-card>
             </div>
             <br>
-            <button mat-raised-button color="primary" data-cy="submit" type="submit" [disabled]='!huis.valid || !detail.valid || !locatie.valid'>
+
+            <div>
+                <mat-card>
+                <h3>Soort</h3>
+                <mat-form-field>
+                    <mat-select placeholder="Selecteer soort" aria-label="soort"
+                        formControlName="soort">
+                        <mat-option *ngFor="let soort of soorten"
+                            [value]="soort">{{
+                            soort }}</mat-option>
+                    </mat-select>
+                    <mat-error
+                        *ngIf="huis.get('soort')['errors'] &&
+                        huis.get('soort').touched">
+                        {{ getErrorMessage(huis.get('soort')['errors']) }}
+                    </mat-error>
+                </mat-form-field>
+            </mat-card>
+            </div>
+            <br>
+            <div>
+                <mat-card>
+                <h3>Immo bureau:</h3>
+                <mat-form-field>
+                    <mat-select placeholder="Selecteer immobureau"
+                        aria-label="name"
+                        formControlName="immoBureau">
+                        <mat-option *ngFor="let bureau of bureaus$ | async"
+                            [value]="bureau">
+                            {{ bureau.naam }}
+                        </mat-option>
+                    </mat-select>
+                    <mat-error
+                        *ngIf="huis.get('immoBureau')['errors'] &&
+                        huis.get('immoBureau').touched">
+                        {{ getErrorMessage(huis.get('immoBureau')['errors']) }}
+                    </mat-error>
+                </mat-form-field>
+            </mat-card>
+            </div>
+            <br>
+            <button mat-raised-button color="primary" data-cy="submit"
+                type="submit" [disabled]='!huis.valid || !detail.valid ||
+                !locatie.valid'>
                 <strong>+</strong>
             </button>
         </form>

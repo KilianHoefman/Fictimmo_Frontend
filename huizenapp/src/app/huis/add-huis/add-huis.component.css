@@ -1,0 +1,10 @@
+mat-card > mat-card{
+    margin: 15px;
+    margin-top: 2em;
+    margin-bottom: 2em;
+
+}
+
+mat-form-field{
+    margin: 1em;
+}

@@ -61,13 +61,11 @@ export class AddHuisComponent implements OnInit {
     this.huis = this.fb.group({
       korteBeschrijving: ['', [Validators.required, Validators.maxLength(250)]],
       price: ['', [Validators.required, Validators.min(1)]],
-    type: ['', Validators.required],
+      type: ['', Validators.required],
       soort: ['', Validators.required],
       immoBureau: ['', Validators.required]
     })    
   }
-
-
 
   onSubmit(){    
     if(
@@ -94,7 +92,7 @@ export class AddHuisComponent implements OnInit {
     }
     else if(errors.min){
       return `Veld moet groter zijn dan huidige`
-    }
+    }     
     else if(errors.max){
       return `Veld moet kleiner zijn dan huidige`
     }
