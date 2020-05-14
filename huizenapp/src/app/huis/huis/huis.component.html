@@ -4,24 +4,26 @@
     <mat-card-subtitle>TE {{ huis.type }}</mat-card-subtitle>        
   </mat-card-header>
   <mat-card-content>
+    <div>
       <app-locatie [locatie]="huis.locatie">
         {{huis.locatie}}
       </app-locatie>      
+    </div>
+      <br>
       <app-detail [detail]="huis.detail">
         {{huis.detail}}
       </app-detail>
+      <h3 mat-header>Immobureau</h3>
       <app-immo-bureau [immoBureau]="huis.immoBureau">
-        {{huis.immoBureau.naam}}
+        <p>{{huis.immoBureau.naam}}</p>
       </app-immo-bureau>
     <h3 mat-header>Prijs</h3>
-    <b>{{ huis.price | currency:"EUR"}}</b>
+    <b>{{ huis.price | currency:"EUR":"symbol":"3.0"}}</b>
     <br />    
     <p>
-      {{ huis.korteBeschrijving }}
+      <i mat-italic>{{ huis.korteBeschrijving }}</i> 
     </p>
   </mat-card-content> 
-
-
     <mat-card-actions fxLayout="row" fxLayoutAlign="space-between center">
       <button
       class="button"
@@ -29,8 +31,7 @@
         type="submit"
         color="primary"
         data-cy="return-button"
-        [routerLink]="['../detail/', huis.id]" style="padding: 5px;"
-      >
+        [routerLink]="['../detail/', huis.id]" style="padding: 5px;">
       Details
       </button>
     </mat-card-actions>

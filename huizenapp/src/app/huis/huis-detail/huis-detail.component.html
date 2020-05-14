@@ -3,24 +3,23 @@
   <h2 mat-header>Te {{ huis.type }}</h2>
   <mat-card-content>
     <div>    
-      <h3 mat-header>Locatie</h3>
+      <h3 mat-header style="text-decoration: underline;">Locatie</h3>
       <app-locatie [locatie]="huis.locatie" [fullLocatie]="true">
         {{huis.locatie}}
       </app-locatie>
+      <h3 mat-header style="text-decoration: underline;">Details</h3>
       <app-detail [detail]="huis.detail" [fullDetails]="true">
         {{huis.detail}}
       </app-detail>
     </div>
     <br>
+    <h3 mat-header style="text-decoration: underline;">Immobureau</h3>
     <app-immo-bureau [immoBureau]="huis.immoBureau">
       {{huis.immoBureau.naam}}
     </app-immo-bureau>
-    <h3 mat-header>Prijs</h3>
+    <h3 mat-header style="text-decoration: underline;">Prijs</h3>
     <b>{{ huis.price | currency:"EUR"}}</b>
     <br />
-    <p>
-      <i mat-italic>"{{ huis.korteBeschrijving }}"</i> 
-    </p>
 
     <mat-card-footer>
       <button mat-fab color="primary" [routerLink]="['../../list']">

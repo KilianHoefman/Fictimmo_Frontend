@@ -1,11 +1,13 @@
 <div>
     <div>
-       <b>Totale oppervlakte:</b> {{detail.totaleOppervlakte}} m<sup>2</sup>
+       <b>Totale opp. :</b> {{detail.totaleOppervlakte}} m<sup>2</sup> <br>
+       <b>Bewoonbare opp. :</b> {{detail.bewoonbareOppervlakte}} m <sup>2</sup> <br>
     </div>
-    <div *ngIf="fullDetails">
-        <b>Lange beschrijving: </b>{{detail.langeBeschrijving}}<br>
-        Bewoonbare oppervlakte: {{detail.bewoonbareOppervlakte}} <br>
-        Epcwaarde: {{detail.epcWaarde}} <br>
-        Kadastraal inkomen: {{detail.kadastraalInkomen}} <br>
+    <div *ngIf="fullDetails">        
+        <br>
+        <b>Epcwaarde:</b> {{detail.epcWaarde}} <br>
+        <b>Kadastraal inkomen: </b> {{detail.kadastraalInkomen}} <br>
+        <br>
+        <i mat-italic>"{{detail.langeBeschrijving}}"</i><br>        
     </div>
 </div>
