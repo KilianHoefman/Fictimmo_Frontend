@@ -25,6 +25,22 @@ export class HuisDataService {
     return this._huizen$;
   }
 
+  // get koopHuizen(): Observable<Huis[]>{
+  //   return this.http.get(`${environment.apiUrl}/huizen/kopen`).pipe(
+  //     shareReplay(1),
+  //     catchError(this.handleError),
+  //     map((list: any[]): Huis[] => list.map(Huis.fromJSON))
+  //   )
+  // }
+
+  // get huurHuizen(): Observable<Huis[]>{
+  //   return this.http.get(`${environment.apiUrl}/huizen/kopen`).pipe(
+  //     shareReplay(1),
+  //     catchError(this.handleError),
+  //     map((list: any[]): Huis[] => list.map(Huis.fromJSON))
+  //   )
+  // }
+
   get huizen$(): Observable<Huis[]> {
       return this.http.get(`${environment.apiUrl}/huizen/`).pipe(
         shareReplay(1),

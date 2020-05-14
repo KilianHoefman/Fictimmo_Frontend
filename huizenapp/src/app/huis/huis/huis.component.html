@@ -14,18 +14,25 @@
         {{huis.immoBureau.naam}}
       </app-immo-bureau>
     <h3 mat-header>Prijs</h3>
-    <b>{{ huis.price }}</b>
+    <b>{{ huis.price | currency:"EUR"}}</b>
     <br />    
     <p>
       {{ huis.korteBeschrijving }}
     </p>
   </mat-card-content> 
-  <mat-card-footer fxLayout="row" fxLayoutAlign="center center">
-    <div class="button" layout="row" layout-align="center center">
-    <button mat-icon-button fxLayout="row" fxLayoutAlign="space-between center" color="primary" [routerLink]="['../detail/', huis.id]">
-      <mat-icon>more_horiz</mat-icon>
-    </button>
-  </div>
-    </mat-card-footer>
+
+
+    <mat-card-actions fxLayout="row" fxLayoutAlign="space-between center">
+      <button
+      class="button"
+        mat-raised-button
+        type="submit"
+        color="primary"
+        data-cy="return-button"
+        [routerLink]="['../detail/', huis.id]" style="padding: 5px;"
+      >
+      Details
+      </button>
+    </mat-card-actions>
 </mat-card>
 

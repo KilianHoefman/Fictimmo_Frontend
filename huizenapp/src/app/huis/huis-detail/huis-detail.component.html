@@ -2,23 +2,21 @@
   <h1 mat-header style="text-transform: uppercase; margin-bottom: -15px;">{{huis.soort}}</h1>
   <h2 mat-header>Te {{ huis.type }}</h2>
   <mat-card-content>
-    <h3 mat-header>Locatie</h3>
-    <div>
+    <div>    
+      <h3 mat-header>Locatie</h3>
       <app-locatie [locatie]="huis.locatie" [fullLocatie]="true">
         {{huis.locatie}}
       </app-locatie>
-    </div>
-    <div>
       <app-detail [detail]="huis.detail" [fullDetails]="true">
         {{huis.detail}}
       </app-detail>
     </div>
-
+    <br>
     <app-immo-bureau [immoBureau]="huis.immoBureau">
       {{huis.immoBureau.naam}}
     </app-immo-bureau>
     <h3 mat-header>Prijs</h3>
-    <b>{{ huis.price }}</b>
+    <b>{{ huis.price | currency:"EUR"}}</b>
     <br />
     <p>
       <i mat-italic>"{{ huis.korteBeschrijving }}"</i> 
@@ -26,8 +24,9 @@
 
     <mat-card-footer>
       <button mat-fab color="primary" [routerLink]="['../../list']">
-        <mat-icon>keyboard_backspace</mat-icon></button>
-      <button mat-fab color="primary" (click)="deleteHuis()"
+        <mat-icon>keyboard_backspace</mat-icon>
+      </button>
+      <button mat-fab color="warn" (click)="deleteHuis()"
         [routerLink]="['../../list']">
         <mat-icon>delete</mat-icon>
       </button>
