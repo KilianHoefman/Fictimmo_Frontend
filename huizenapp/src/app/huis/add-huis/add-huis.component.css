@@ -8,3 +8,7 @@ mat-card > mat-card{
 mat-form-field{
     margin: 1em;
 }
+
+.left{
+    float: left;
+}
