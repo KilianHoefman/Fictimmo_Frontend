@@ -1,0 +1,16 @@
+.mat-card{
+    height: 100%;
+    width: 100%;
+}
+
+.about{
+    background-color: white;
+    height: 100%;
+}
+
+.card{
+    min-width: 650px;
+    max-width: 750px;
+    background-color: none;
+    border: none;
+}

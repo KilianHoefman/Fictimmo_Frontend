@@ -12,6 +12,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { httpInterceptorProviders } from 'src/interceptors';
 import { AgmCoreModule, GoogleMapsAPIWrapper } from '@agm/core';
 import { MapsAPILoader} from '@agm/core';
+import { AboutPageComponent } from './huis/about-page/about-page.component';
 
 
 
@@ -20,7 +21,8 @@ import { MapsAPILoader} from '@agm/core';
     AppComponent,
     KlantComponent,
     PageNotFoundComponent,
-    MainNavComponent
+    MainNavComponent,
+    AboutPageComponent
     ],
   imports: [
     BrowserModule,
