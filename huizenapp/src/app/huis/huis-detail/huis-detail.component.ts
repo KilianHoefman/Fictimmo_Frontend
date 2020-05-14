@@ -3,7 +3,6 @@ import { ActivatedRoute } from '@angular/router';
 import { HuisDataService } from '../huis/huis-data.service';
 import { Huis } from '../huis/huis.model';
 import { MatSnackBar } from '@angular/material/snack-bar';
-import { UpperCasePipe } from '@angular/common';
 
 
 @Component({

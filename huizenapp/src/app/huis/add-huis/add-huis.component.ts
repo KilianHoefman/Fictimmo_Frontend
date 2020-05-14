@@ -2,10 +2,8 @@ import { Component, OnInit, EventEmitter, Output } from '@angular/core';
 import { FormGroup, FormControl, Validators, FormBuilder, ValidatorFn, ValidationErrors } from '@angular/forms';
 import { Huis } from '../huis/huis.model';
 import { Locatie } from '../locatie/locatie.model';
-
-
+import { MatSnackBar } from '@angular/material/snack-bar';
 import { HuisDataService } from '../huis/huis-data.service';
-
 import { Observable } from 'rxjs';
 import { ImmoBureau } from '../immo-bureau/immo-bureau.model';
 import { ImmoBureauDataService } from '../immo-bureau/immo-bureau-data.service';
@@ -29,7 +27,7 @@ export class AddHuisComponent implements OnInit {
   
 
   constructor(private fb: FormBuilder, private _huisDataService: HuisDataService, private bds: ImmoBureauDataService,
-    private _router: Router) { 
+    private _router: Router, private _snackbar: MatSnackBar) { 
   }
 
   public readonly types = ['Koop', 'Huur'];
@@ -38,6 +36,12 @@ export class AddHuisComponent implements OnInit {
 
   get bureaus$(): Observable<ImmoBureau[]>{
     return this._fetchBureaus$;
+  }
+
+  openSnackbar(message: string, action: string){
+    this._snackbar.open(message, action, {
+      duration: 2000,
+    });
   }
 
   ngOnInit(): void {
@@ -78,7 +82,8 @@ export class AddHuisComponent implements OnInit {
       this.huis.value.soort, 
       this.huis.value.immoBureau)
       ))
-      this._router.navigate(['huizen/list']);          
+      this._router.navigate(['huizen/list']);   
+      this.openSnackbar(`${this.huis.value.soort} SUCCESVOL TOEGEVOEGD`, 'OK');
   }
 
   getErrorMessage(errors: any): string {

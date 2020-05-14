@@ -1,9 +1,9 @@
 <div fxLayout="row" fxLayoutAlign="center center" class="login-main">
     <mat-card>
       <form [formGroup]="user" (ngSubmit)="onSubmit()">
-        <mat-card-header>
-          <mat-card-title>Login</mat-card-title>
-        </mat-card-header>
+
+          <h2 mat-header>LOGIN</h2>
+        
   
         <mat-card-content fxLayout="column">
           <mat-form-field>
@@ -40,8 +40,8 @@
           </button>
         </mat-card-actions>
       </form>
-      <mat-card class="error" *ngIf="errorMessage" data-cy="appError">
+      <p class="error" *ngIf="errorMessage" data-cy="appError">
         got an error while loading the recipe list: {{ errorMessage }}
-      </mat-card>
+      </p>
     </mat-card>
   </div>

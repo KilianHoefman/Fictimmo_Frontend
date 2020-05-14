@@ -20,8 +20,10 @@
     <h3 mat-header>Prijs</h3>
     <b>{{ huis.price }}</b>
     <br />
-    <h3 mat-header>Korte Beschrijving</h3>
-    {{ huis.korteBeschrijving }}
+    <p>
+      <i mat-italic>"{{ huis.korteBeschrijving }}"</i> 
+    </p>
+
     <mat-card-footer>
       <button mat-fab color="primary" [routerLink]="['../../list']">
         <mat-icon>keyboard_backspace</mat-icon></button>
