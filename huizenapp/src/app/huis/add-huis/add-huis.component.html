@@ -1,50 +1,51 @@
-<mat-card>
-    <mat-card-title>Voeg een huis toe:</mat-card-title>
+<mat-card style="background-color:whitesmoke;">
+    <mat-card-title>Voeg vastgoed toe:</mat-card-title>
+    <br>
     <mat-card-content>
         <mat-card>
             <form [formGroup]="locatie">
                 <h3>Locatie: </h3>
                 <mat-form-field>
                     <input matInput type="text" aria-label="gemeente"
-                        placeholder="Gemeente" formControlName="gemeente">
+                        placeholder="Gemeente" formControlName="gemeente" data-cy="gemeenteInput">
                     <mat-error
                         *ngIf="locatie.get('gemeente')['errors'] &&
-                        locatie.get('gemeente').touched">
+                        locatie.get('gemeente').touched" data-cy="gemeenteError">
                         {{ getErrorMessage(locatie.get('gemeente')['errors']) }}
                     </mat-error>
                 </mat-form-field>
                 <mat-form-field>
                     <input matInput type="text" aria-label="straatnaam"
-                        placeholder="Straatnaam" formControlName="straatnaam">
+                        placeholder="Straatnaam" formControlName="straatnaam" data-cy="straatnaamInput">
                     <mat-error
                         *ngIf="locatie.get('straatnaam')['errors'] &&
-                        locatie.get('straatnaam').touched">
+                        locatie.get('straatnaam').touched" data-cy="straatnaamError">
                         {{ getErrorMessage(locatie.get('straatnaam')['errors'])
                         }}
                     </mat-error>
                 </mat-form-field>
                 <mat-form-field>
                     <input matInput type="text" aria-label="huisnummer"
-                        placeholder="Huisnummer" formControlName="huisnummer">
+                        placeholder="Huisnummer" formControlName="huisnummer" data-cy="huisnummerInput">
                     <mat-error
                         *ngIf="locatie.get('huisnummer')['errors'] &&
-                        locatie.get('huisnummer').touched">
+                        locatie.get('huisnummer').touched" data-cy="huisnummerError">
                         {{ getErrorMessage(locatie.get('huisnummer')['errors'])
                         }}
                     </mat-error>
                 </mat-form-field>
                 <mat-form-field>
                     <input matInput type="number" aria-label="postcode"
-                        placeholder="Postcode" formControlName="postcode">
+                        placeholder="Postcode" formControlName="postcode" data-cy="postcodeInput">
                     <mat-error
                         *ngIf="locatie.get('postcode')['errors'] &&
-                        locatie.get('postcode').touched">
+                        locatie.get('postcode').touched" data-cy="postcodeError">
                         {{ getErrorMessage(locatie.get('postcode')['errors']) }}
                     </mat-error>
                 </mat-form-field>
             </form>
         </mat-card>
-            <br>    
+        <br>
         <mat-card>
             <form [formGroup]="detail">
                 <h3>Detail:</h3>
@@ -52,10 +53,10 @@
                     <input matInput type="number"
                         aria-label="bewoonbareOppervlakte"
                         placeholder="Bew. oppervlakte"
-                        formControlName="bewoonbareOppervlakte">
+                        formControlName="bewoonbareOppervlakte" data-cy="bewoonbareOppervlakteInput">
                     <mat-error
                         *ngIf="detail.get('bewoonbareOppervlakte')['errors'] &&
-                        detail.get('bewoonbareOppervlakte').touched">
+                        detail.get('bewoonbareOppervlakte').touched" data-cy="bewoonbareOppervlakteError">
                         {{
                         getErrorMessage(detail.get('bewoonbareOppervlakte')['errors'])
                         }}
@@ -64,10 +65,10 @@
                 <mat-form-field>
                     <input matInput type="number" aria-label="totaleOppervlakte"
                         placeholder="Tot. oppervlakte"
-                        formControlName="totaleOppervlakte">
+                        formControlName="totaleOppervlakte" data-cy="totaleOppervlakteInput">
                     <mat-error
                         *ngIf="detail.get('totaleOppervlakte')['errors'] &&
-                        detail.get('totaleOppervlakte').touched">
+                        detail.get('totaleOppervlakte').touched" data-cy="totaleOppervlakteError">
                         {{
                         getErrorMessage(detail.get('totaleOppervlakte')['errors'])
                         }}
@@ -75,20 +76,20 @@
                 </mat-form-field>
                 <mat-form-field>
                     <input matInput type="number" aria-label="epcWaarde"
-                        placeholder="EPC Waarde" formControlName="epcWaarde">
+                        placeholder="EPC Waarde" formControlName="epcWaarde" data-cy="epcInput">
                     <mat-error
                         *ngIf="detail.get('epcWaarde')['errors'] &&
-                        detail.get('epcWaarde').touched">
+                        detail.get('epcWaarde').touched" data-cy="epcError">
                         {{ getErrorMessage(detail.get('epcWaarde')['errors']) }}
                     </mat-error>
                 </mat-form-field>
                 <mat-form-field>
                     <input matInput type="number" aria-label="kadastraalInkomen"
                         placeholder="Kadastraal inkomen"
-                        formControlName="kadastraalInkomen">
+                        formControlName="kadastraalInkomen" data-cy="kadastraalInkomenInput">
                     <mat-error
                         *ngIf="detail.get('kadastraalInkomen')['errors'] &&
-                        detail.get('kadastraalInkomen').touched">
+                        detail.get('kadastraalInkomen').touched" data-cy="kadastraalInkomenError">
                         {{
                         getErrorMessage(detail.get('kadastraalInkomen')['errors'])
                         }}
@@ -98,10 +99,10 @@
                     <textarea matInput class="bigText" type="text"
                         aria-label="langeBeschrijving" placeholder="Lange
                         beschrijving" formControlName="langeBeschrijving"
-                        cdkTextareaAutosize #autosize="cdkTextareaAutosize"></textarea>
+                        cdkTextareaAutosize #autosize="cdkTextareaAutosize" data-cy="langeBeschrijvingInput"></textarea>
                     <mat-error
                         *ngIf="detail.get('langeBeschrijving')['errors'] &&
-                        detail.get('langeBeschrijving').touched">
+                        detail.get('langeBeschrijving').touched" data-cy="langeBeschrijvingError">
                         {{
                         getErrorMessage(detail.get('langeBeschrijving')['errors'])
                         }}
@@ -109,109 +110,123 @@
                 </mat-form-field>
             </form>
         </mat-card>
-        <br>
+
         <form [formGroup]="huis" (ngSubmit)='onSubmit()'>
-            <div>
-                <mat-card>
-                <h3>Korte beschrijving</h3>
-                <mat-form-field>
-                    <textarea matInput class="bigText" type="text"
-                        aria-label="korteBeschrijving" placeholder="Korte
-                        beschrijving" formControlName="korteBeschrijving"
-                        cdkTextareaAutosize #autosize="cdkTextareaAutosize"></textarea>
-                    <mat-error
-                        *ngIf="huis.get('korteBeschrijving')['errors'] &&
-                        huis.get('korteBeschrijving').touched">
-                        {{
-                        getErrorMessage(huis.get('korteBeschrijving')['errors'])
-                        }}
-                    </mat-error>
-                </mat-form-field>
-            </mat-card>
-            </div>
-            <mat-divider></mat-divider>
-            <br>
-            <div>
-                <mat-card>
-                <h3>Price:</h3>
-                <mat-form-field>
-                    <input matInput type="number" aria-label="price"
-                        placeholder="Prijs" formControlName="price">
-                    <mat-error
-                        *ngIf="huis.get('price')['errors'] &&
-                        huis.get('price').touched">
-                        {{ getErrorMessage(huis.get('price')['errors']) }}
-                    </mat-error>
-                </mat-form-field>
-            </mat-card>   
-            </div>
+            <div fxLayout="row" fxLayoutAlign="space-around center" class="flex">
+                <div>
+                    <mat-card>
+                        <h3>Korte beschrijving</h3>
+                        <mat-form-field>
+                            <textarea matInput class="bigText" type="text"
+                                aria-label="korteBeschrijving"
+                                placeholder="Korte
+                                beschrijving"
+                                formControlName="korteBeschrijving"
+                                cdkTextareaAutosize
+                                #autosize="cdkTextareaAutosize" data-cy="korteBeschrijvingInput"></textarea>
+                            <mat-error
+                                *ngIf="huis.get('korteBeschrijving')['errors']
+                                &&
+                                huis.get('korteBeschrijving').touched" data-cy="korteBeschrijvingError">
+                                {{
+                                getErrorMessage(huis.get('korteBeschrijving')['errors'])
+                                }}
+                            </mat-error>
+                        </mat-form-field>
+                    </mat-card>
+                </div>
+                <br>
+                <div>
+                    <mat-card>
+                        <h3>Price:</h3>
+                        <mat-form-field>
+                            <input matInput type="number" aria-label="price"
+                                placeholder="Prijs" formControlName="price" data-cy="priceInput">
+                            <mat-error
+                                *ngIf="huis.get('price')['errors'] &&
+                                huis.get('price').touched" data-cy="priceError">
+                                {{ getErrorMessage(huis.get('price')['errors'])
+                                }}
+                            </mat-error>
+                        </mat-form-field>
+                    </mat-card>
+                </div>
 
-            <br>
-            <div>
-                <mat-card>
-                <h3>Kopen of huren?</h3>
-                <mat-form-field>
-                    <mat-select placeholder="Selecteer type" aria-label="type"
-                        formControlName="type">
-                        <mat-option *ngFor="let type of types" [value]="type">{{
-                            type }}
-                        </mat-option>
-                    </mat-select>
-                    <mat-error
-                        *ngIf="huis.get('type')['errors'] &&
-                        huis.get('type').touched">
-                        {{ getErrorMessage(huis.get('type')['errors']) }}
-                    </mat-error>
-                </mat-form-field>
-            </mat-card>
-            </div>
-            <br>
+                <br>
+                <div>
+                    <mat-card>
+                        <h3 data-cy="typeSelectHeader">Kopen of huren?</h3>
+                        <mat-form-field>
+                            <mat-select placeholder="Selecteer type"
+                                aria-label="type"
+                                formControlName="type" data-cy="typeInput">
+                                <mat-option *ngFor="let type of types"
+                                    [value]="type">{{
+                                    type }}
+                                </mat-option>
+                            </mat-select>
+                            <mat-error
+                                *ngIf="huis.get('type')['errors'] &&
+                                huis.get('type').touched">
+                                {{ getErrorMessage(huis.get('type')['errors'])
+                                }}
+                            </mat-error>
+                        </mat-form-field>
+                    </mat-card>
+                </div>
+                <br>
 
-            <div>
-                <mat-card>
-                <h3>Soort</h3>
-                <mat-form-field>
-                    <mat-select placeholder="Selecteer soort" aria-label="soort"
-                        formControlName="soort">
-                        <mat-option *ngFor="let soort of soorten"
-                            [value]="soort">{{
-                            soort }}</mat-option>
-                    </mat-select>
-                    <mat-error
-                        *ngIf="huis.get('soort')['errors'] &&
-                        huis.get('soort').touched">
-                        {{ getErrorMessage(huis.get('soort')['errors']) }}
-                    </mat-error>
-                </mat-form-field>
-            </mat-card>
+                <div>
+                    <mat-card>
+                        <h3>Soort</h3>
+                        <mat-form-field>
+                            <mat-select placeholder="Selecteer soort"
+                                aria-label="soort"
+                                formControlName="soort" data-cy="soortInput">
+                                <mat-option *ngFor="let soort of soorten"
+                                    [value]="soort">{{
+                                    soort }}</mat-option>
+                            </mat-select>
+                            <mat-error
+                                *ngIf="huis.get('soort')['errors'] &&
+                                huis.get('soort').touched">
+                                {{ getErrorMessage(huis.get('soort')['errors'])
+                                }}
+                            </mat-error>
+                        </mat-form-field>
+                    </mat-card>
+                </div>
             </div>
             <br>
             <div>
                 <mat-card>
-                <h3>Immo bureau:</h3>
-                <mat-form-field>
-                    <mat-select placeholder="Selecteer immobureau"
-                        aria-label="name"
-                        formControlName="immoBureau">
-                        <mat-option *ngFor="let bureau of bureaus$ | async"
-                            [value]="bureau">
-                            {{ bureau.naam }}
-                        </mat-option>
-                    </mat-select>
-                    <mat-error
-                        *ngIf="huis.get('immoBureau')['errors'] &&
-                        huis.get('immoBureau').touched">
-                        {{ getErrorMessage(huis.get('immoBureau')['errors']) }}
-                    </mat-error>
-                </mat-form-field>
-            </mat-card>
+                    <h3>Immo bureau:</h3>
+                    <mat-form-field>
+                        <mat-select placeholder="Selecteer immobureau"
+                            aria-label="name"
+                            formControlName="immoBureau" data-cy="immobureauInput">
+                            <mat-option *ngFor="let bureau of bureaus$ | async"
+                                [value]="bureau">
+                                {{ bureau.naam }}
+                            </mat-option>
+                        </mat-select>
+                        <mat-error
+                            *ngIf="huis.get('immoBureau')['errors'] &&
+                            huis.get('immoBureau').touched">
+                            {{ getErrorMessage(huis.get('immoBureau')['errors'])
+                            }}
+                        </mat-error>
+                    </mat-form-field>
+                </mat-card>
             </div>
             <br>
-            <button mat-raised-button color="primary" data-cy="submit"
+            <div style="background: none;">
+            <button mat-raised-button color="primary" data-cy="submitButton"
                 type="submit" [disabled]='!huis.valid || !detail.valid ||
                 !locatie.valid'>
                 <strong>+</strong>
             </button>
+        </div>
         </form>
     </mat-card-content>
 </mat-card>

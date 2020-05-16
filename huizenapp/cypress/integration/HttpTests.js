@@ -1,11 +1,15 @@
 describe('Tests', function () {
-  it('App runs correctly on startup', function () {
+  beforeEach(function () {
+    cy.login();
+  })
+
+  it('Correct startup', function () {
     cy.visit('http://localhost:4200');
     cy.get('[data-cy=filterInput]').type('gr');
     cy.get('[data-cy=huisCard]').should('have.length', 1);
   });
 
-  it('Huis get works', function () {
+  it('HttpGet for huizen', function () {
     cy.server();
     cy.route({
       method: 'GET',
@@ -23,10 +27,22 @@ describe('Tests', function () {
     });
 
     cy.visit('/');
-    cy.get('[data-cy=huisCard]').should('have.length', 2)
+    cy.get('[data-cy=huisCard]').should('have.length', 4)
   });
 
-  it('On error should show message', function(){
+  it('Filter for soort works', function() {
+    cy.server();
+    cy.route({
+      method: 'GET',
+      url: 'api/huizen',
+      status: 200,
+      response: 'fixture:huizen.json'
+    })
+    cy.get('[data-cy=filterInput]').type('hu');
+    cy.get('[data-cy=huisCard]').should('have.length', 4)
+  });
+
+  it('On httprequest error should show message', function () {
     cy.server();
     cy.route({
       method: 'GET',
@@ -37,4 +53,5 @@ describe('Tests', function () {
     cy.visit('/');
     cy.get('[data-cy=appError]').should('be.visible');
   });
+
 });

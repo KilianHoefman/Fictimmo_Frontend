@@ -63,7 +63,7 @@ export class AddHuisComponent implements OnInit {
     });
 
     this.huis = this.fb.group({
-      korteBeschrijving: ['', [Validators.required, Validators.maxLength(250)]],
+      korteBeschrijving: ['', [Validators.required, Validators.maxLength(150)]],
       price: ['', [Validators.required, Validators.min(1)]],
       type: ['', Validators.required],
       soort: ['', Validators.required],

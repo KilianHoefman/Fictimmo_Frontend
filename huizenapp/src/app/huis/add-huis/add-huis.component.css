@@ -1,14 +1,26 @@
-mat-card > mat-card{
+mat-card{
     margin: 15px;
     margin-top: 2em;
     margin-bottom: 2em;
-
 }
 
+.mat-card:not([class*=mat-elevation-z]) {
+    box-shadow: 0 2px 1px -1px rgba(0, 0, 0, 0.473), 
+                0 1px 1px 0 rgba(0,0,0,0.473), 
+                0 1px 3px 0 rgba(0,0,0,0.473);
+}
 mat-form-field{
     margin: 1em;
 }
 
 .left{
     float: left;
+}
+
+.mat-error{
+    width: 100%;
+}
+
+.flex{
+    flex-wrap: wrap;
 }

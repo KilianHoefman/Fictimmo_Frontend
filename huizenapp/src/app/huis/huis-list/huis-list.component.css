@@ -10,3 +10,8 @@
     bottom: 0;
     right: 0;
   }
+
+  .error{
+    width: 500px;
+    margin: auto;
+  }

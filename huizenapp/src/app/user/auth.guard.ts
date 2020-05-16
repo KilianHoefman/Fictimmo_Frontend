@@ -22,7 +22,9 @@ import { AuthenticationService } from './authentication.service';
    ): boolean {
      if (this.authService.user$.getValue()) {
        return true;
-     }
+     }       
+     console.log('test');
+
      this.authService.redirectUrl = state.url;
      this.router.navigate(['/login']);
      return false;

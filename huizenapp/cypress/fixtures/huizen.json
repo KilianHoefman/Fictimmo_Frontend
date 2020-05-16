@@ -26,6 +26,62 @@
     }
   },
   {
+    "id": 3,
+    "locatie": {
+      "locatieId": 2,
+      "gemeente": "Waasmunster",
+      "straatnaam": "Muizenberg",
+      "huisnummer": "12",
+      "postcode": 9250,
+      "latitude": 51.1267101,
+      "longitude": 4.1010881
+    },
+    "korteBeschrijving": "Dit is een korte beschrijving v6",
+    "price": 1000000,
+    "detail": {
+      "detailID": 3,
+      "langeBeschrijving": "Dit is een lange beschrijving v6",
+      "bewoonbareOppervlakte": 800,
+      "totaleOppervlakte": 5000,
+      "epcWaarde": 330,
+      "kadastraalInkomen": 1560
+    },
+    "type": "koop",
+    "soort": "huis",
+    "immoBureau": {
+      "immoBureauId": 1,
+      "naam": "Immo Nobels"
+    }
+  },
+  {
+    "id": 4,
+    "locatie": {
+      "locatieId": 5,
+      "gemeente": "Merelbeke",
+      "straatnaam": "Sint-elooistraat",
+      "huisnummer": "72",
+      "postcode": 9820,
+      "latitude": 50.9772371,
+      "longitude": 3.7286227
+    },
+    "korteBeschrijving": "Dit is een korte beschrijving v3",
+    "price": 4500,
+    "detail": {
+      "detailID": 7,
+      "langeBeschrijving": "Dit is een lange beschrijving v3",
+      "bewoonbareOppervlakte": 600,
+      "totaleOppervlakte": 1200,
+      "epcWaarde": 560,
+      "kadastraalInkomen": 4500
+    },
+    "type": "huur",
+    "soort": "huis",
+    "immoBureau": {
+      "immoBureauId": 2,
+      "naam": "Immo Da Vinci"
+    }
+  },
+  {
     "id": 2,
     "locatie": {
       "locatieId": 4,
