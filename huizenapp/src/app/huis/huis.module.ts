@@ -20,7 +20,7 @@ import { AboutPageComponent } from './about-page/about-page.component';
  const routes: Routes = [
   {path: 'huizen/list', component: HuisListComponent},
   {path: 'huizen/add', component: AddHuisComponent},
-  {path: 'huizen/about', component: AboutPageComponent},
+  // {path: 'huizen/about', component: AboutPageComponent},
   {path: 'huizen/detail/:id', component: HuisDetailComponent, resolve: {huis: HuisResolver}},
  ]
 

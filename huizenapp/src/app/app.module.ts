@@ -9,7 +9,7 @@ import { HuisModule } from './huis/huis.module';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { MainNavComponent } from './main-nav/main-nav.component';
 import { AppRoutingModule } from './app-routing.module';
-import { httpInterceptorProviders } from 'src/interceptors';
+import { httpInterceptorProviders } from './interceptors';
 import { AgmCoreModule, GoogleMapsAPIWrapper } from '@agm/core';
 import { MapsAPILoader} from '@agm/core';
 import { AboutPageComponent } from './huis/about-page/about-page.component';
