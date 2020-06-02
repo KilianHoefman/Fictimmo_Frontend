@@ -3,6 +3,7 @@ import { ActivatedRoute } from '@angular/router';
 import { HuisDataService } from '../huis/huis-data.service';
 import { Huis } from '../huis/huis.model';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import { AuthenticationService } from 'src/app/user/authentication.service';
 
 
 @Component({
@@ -12,14 +13,23 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 })
 export class HuisDetailComponent implements OnInit {
   public huis: Huis;
+  private _ingelogd: boolean = false;
 
   constructor(private route: ActivatedRoute,
     private _huisDataService: HuisDataService,
-    private _snackBar: MatSnackBar) { }
+    private _snackBar: MatSnackBar, 
+    private _authentication: AuthenticationService) { }
 
   ngOnInit(): void {
     this.route.data.subscribe(item => 
-      this.huis = item['huis']);
+      this.huis = item['huis']);      
+  }
+
+  checkLogin() : boolean{
+    if(this._authentication.user$.getValue()){
+      this._ingelogd = true;
+    }
+    return this._ingelogd;
   }
 
   openSnackBar(message: string, action: string) {
@@ -30,11 +40,8 @@ export class HuisDetailComponent implements OnInit {
 
   deleteHuis(){
     let soort : string = this.huis.soort.toUpperCase();
-    if(this._huisDataService.deleteHuis(this.huis)){
-      this.openSnackBar(`${soort} SUCCESVOL VERWIJDERD`, 'OK');
-    }else{
-    this.openSnackBar(`${soort} NIET VERWIJDERD`, 'OK');
-    }
+    this._huisDataService.deleteHuis(this.huis)
+    this.openSnackBar(`${soort} SUCCESVOL VERWIJDERD`, 'OK');
   }
 
 }

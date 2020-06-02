@@ -13,10 +13,16 @@ export class HuisDataService {
   private _huizen$ = new BehaviorSubject<Huis[]>([]);
   private _huizen: Huis[];
 
-  constructor(private http: HttpClient) {}
-
-  getHuizen$(){
-    
+  constructor(private http: HttpClient) {
+    this.huizen$.pipe(
+      catchError((err) => {
+        
+        return throwError(err);
+      })
+    ).subscribe((huizen: Huis[]) => {
+      this._huizen = huizen;
+      this._huizen$.next(this._huizen);
+    })
   }
 
   getHuis$(id: string) : Observable<Huis>{
@@ -41,9 +47,11 @@ export class HuisDataService {
     return this.http
       .post(`${environment.apiUrl}/huizen/`, huis.toJSON())
       .pipe(catchError(this.handleError), map(Huis.fromJSON))
-      .subscribe((h: Huis) => {
-        this._huizen = [...this._huizen, h];
+      .subscribe((huisje: Huis) => {
+        this._huizen = [...this._huizen, huisje];
+        console.log(this._huizen);
         this._huizen$.next(this._huizen);
+        console.log(this.huizen$);
     });
   }
 
@@ -52,10 +60,17 @@ export class HuisDataService {
     .delete(`${environment.apiUrl}/huizen/${huis.id}`)
     .pipe(catchError(this.handleError))
     .subscribe(() => {
-      this._huizen = this._huizen.filter(h => h.id != huis.id);
+      this._huizen = this._huizen.filter((huisje) => huisje.id != huis.id);
       this._huizen$.next(this._huizen);
     });
   }
+  // return this.http
+  //     .delete(`${environment.apiUrl}/Sneakers/${sneaker.id}`)
+  //     .pipe(tap(console.log), catchError(this.handleError))
+  //     .subscribe(() => {
+  //       this._sneakers = this._sneakers.filter((sneak) => sneak.id != sneaker.id);
+  //       this._sneakers$.next(this._sneakers);
+  //     });
   
   handleError(err: any): Observable<never> {
     let errorMessage: string;
@@ -70,19 +85,3 @@ export class HuisDataService {
     return throwError(errorMessage);
   }
 }
-
-  // get koopHuizen(): Observable<Huis[]>{
-  //   return this.http.get(`${environment.apiUrl}/huizen/kopen`).pipe(
-  //     shareReplay(1),
-  //     catchError(this.handleError),
-  //     map((list: any[]): Huis[] => list.map(Huis.fromJSON))
-  //   )
-  // }
-
-  // get huurHuizen(): Observable<Huis[]>{
-  //   return this.http.get(`${environment.apiUrl}/huizen/kopen`).pipe(
-  //     shareReplay(1),
-  //     catchError(this.handleError),
-  //     map((list: any[]): Huis[] => list.map(Huis.fromJSON))
-  //   )
-  // }

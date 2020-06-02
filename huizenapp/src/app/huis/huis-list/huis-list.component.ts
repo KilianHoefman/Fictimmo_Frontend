@@ -31,7 +31,7 @@ export class HuisListComponent implements OnInit {
     .subscribe(val => (this.filterHuisSoort = val));
   }
   ngOnInit(): void {
-    this._fetchHuizen$ = this._huisDataService.huizen$.pipe(
+    this._fetchHuizen$ = this._huisDataService.allHuizen$.pipe(
       catchError(err => {
         this.errorMessage = err;
         return EMPTY;

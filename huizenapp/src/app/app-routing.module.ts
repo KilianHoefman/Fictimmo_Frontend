@@ -5,11 +5,6 @@ import { AuthGuard } from './user/auth.guard';
 import { AboutPageComponent } from './huis/about-page/about-page.component';
 
 const appRoutes: Routes = [
-  {
-    path: 'huis',
-    canActivate: [ AuthGuard ],
-    loadChildren: () => import('./huis/huis.module').then(mod => mod.HuisModule)
-  },
   {path: 'about', component: AboutPageComponent},
   {path: '', redirectTo: 'huizen/list', pathMatch: 'full'},
   {path: '**', component: PageNotFoundComponent}

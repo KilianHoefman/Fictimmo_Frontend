@@ -25,10 +25,10 @@
       <button mat-fab color="primary" [routerLink]="['../../list']">
         <mat-icon>keyboard_backspace</mat-icon>
       </button>
-      <button mat-fab color="warn" (click)="deleteHuis()"
+      <button *ngIf="checkLogin()" mat-fab color="warn" (click)="deleteHuis()"
         [routerLink]="['../../list']">
         <mat-icon>delete</mat-icon>
-      </button>
+      </button>    
     </mat-card-footer>
   </mat-card-content>
 </mat-card>
