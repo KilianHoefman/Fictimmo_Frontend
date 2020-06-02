@@ -8,7 +8,7 @@ import { ImmoBureau } from './immo-bureau.model';
 })
 export class ImmoBureauComponent implements OnInit {
   @Input() public immoBureau: ImmoBureau;
-  // @Input() public naam : string;
+
   constructor() { }
 
   ngOnInit(): void {

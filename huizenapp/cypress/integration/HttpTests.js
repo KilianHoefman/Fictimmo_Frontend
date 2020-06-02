@@ -13,7 +13,7 @@ describe('Tests', function () {
     cy.server();
     cy.route({
       method: 'GET',
-      url: 'http://localhost:4200/api/huizen'
+      url: '/api/huizen'
     });
   });
 

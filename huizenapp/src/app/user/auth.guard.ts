@@ -20,10 +20,10 @@ import { AuthenticationService } from './authentication.service';
      next: ActivatedRouteSnapshot,
      state: RouterStateSnapshot
    ): boolean {
+
      if (this.authService.user$.getValue()) {
        return true;
      }       
-     console.log('test');
 
      this.authService.redirectUrl = state.url;
      this.router.navigate(['/login']);

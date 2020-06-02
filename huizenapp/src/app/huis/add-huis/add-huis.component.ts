@@ -32,7 +32,6 @@ export class AddHuisComponent implements OnInit {
 
   public readonly types = ['Koop', 'Huur'];
   public readonly soorten = ['Huis', 'Appartement', 'Grond'];
-  //private readonly bureaus = ['CD Vastgoed', 'Immo Da Vinci', 'Immo Nobels'];
 
   get bureaus$(): Observable<ImmoBureau[]>{
     return this._fetchBureaus$;
@@ -57,7 +56,7 @@ export class AddHuisComponent implements OnInit {
     this.detail = this.fb.group({
       langeBeschrijving: ['', [Validators.required, Validators.minLength(1), Validators.minLength(100)]],
       bewoonbareOppervlakte: ['', [Validators.required, Validators.min(1)]],
-      totaleOppervlakte: ['', [Validators.required, Validators.min(1)]/*, {forbiddenNumberValidator}*/],
+      totaleOppervlakte: ['', [Validators.required, Validators.min(1)]],
       epcWaarde: ['', [Validators.required, Validators.min(0), Validators.max(900)]],
       kadastraalInkomen: ['', [Validators.required, Validators.min(1)]]
     });

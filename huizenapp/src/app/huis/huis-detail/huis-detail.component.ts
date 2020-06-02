@@ -30,8 +30,11 @@ export class HuisDetailComponent implements OnInit {
 
   deleteHuis(){
     let soort : string = this.huis.soort.toUpperCase();
-    this.openSnackBar(`${soort} SUCCESVOL VERWIJDERD`, 'OK');
-    this._huisDataService.deleteHuis(this.huis);
+    if(this._huisDataService.deleteHuis(this.huis)){
+      this.openSnackBar(`${soort} SUCCESVOL VERWIJDERD`, 'OK');
+    }else{
+    this.openSnackBar(`${soort} NIET VERWIJDERD`, 'OK');
+    }
   }
 
 }

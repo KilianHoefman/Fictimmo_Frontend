@@ -7,11 +7,11 @@ const appRoutes: Routes = [
   {
     path: 'huis',
     canActivate: [ AuthGuard ],
-    loadChildren: '../huis/huis.module'
+    loadChildren: () => import('./huis/huis.module').then(mod => mod.HuisModule)
   },
   {path: '', redirectTo: 'huizen/list', pathMatch: 'full'},
   {path: '**', component: PageNotFoundComponent}
-];
+]
 
 @NgModule({
   declarations: [],

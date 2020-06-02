@@ -120,7 +120,6 @@ export class RegisterComponent implements OnInit {
         this.user.value.voornaam,
         this.user.value.achternaam,
         this.user.value.email,
-        //this.user.value.birthdate,
         this.user.value.passwordGroup.password
       )
       .subscribe(
