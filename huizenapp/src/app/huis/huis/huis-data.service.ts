@@ -64,13 +64,7 @@ export class HuisDataService {
       this._huizen$.next(this._huizen);
     });
   }
-  // return this.http
-  //     .delete(`${environment.apiUrl}/Sneakers/${sneaker.id}`)
-  //     .pipe(tap(console.log), catchError(this.handleError))
-  //     .subscribe(() => {
-  //       this._sneakers = this._sneakers.filter((sneak) => sneak.id != sneaker.id);
-  //       this._sneakers$.next(this._sneakers);
-  //     });
+
   
   handleError(err: any): Observable<never> {
     let errorMessage: string;
