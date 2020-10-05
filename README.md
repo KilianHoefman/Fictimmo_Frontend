@@ -1,4 +1,4 @@
-# 1920-b1-fe-KilianHoefman
+# Frontend Fictimmo
 ### GitHub repository voor frontend applicatie van een (fictieve) ImmoWebsite, geschreven in Angular 9
 
 Voor het draaien van deze applicatie dient de backendserver ook actief en bereikbaar te zijn.
